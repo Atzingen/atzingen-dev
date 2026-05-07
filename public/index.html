@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gustavo von Atzingen — Professor, pesquisador e engenheiro</title>
+  <meta name="description" content="Portfólio do Prof. Gustavo Voltani von Atzingen — IFSP, CEPAD, Quickium, Inteligência Atuarial. Computer vision, EEG, machine learning, atuarial.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Gustavo von Atzingen">
+  <meta property="og:description" content="Professor IFSP · Pesquisador CEPAD · Founder Quickium · Sócio Inteligência Atuarial">
+  <meta property="og:url" content="https://atzingen.dev">
+  <meta property="og:image" content="https://atzingen.dev/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="brand" href="#top" aria-label="atzingen.dev">
+      <em>von</em><span>·atzingen</span>
+    </a>
+    <nav class="nav" aria-label="seções">
+      <a href="#sobre"        data-i18n="nav.about">Sobre</a>
+      <a href="#areas"        data-i18n="nav.areas">Áreas</a>
+      <a href="#papeis"       data-i18n="nav.roles">Atuação</a>
+      <a href="#projetos"     data-i18n="nav.projects">Projetos</a>
+      <a href="#publicacoes"  data-i18n="nav.publications">Publicações</a>
+      <a href="#open-source"  data-i18n="nav.opensource">Open Source</a>
+      <a href="#contato"      data-i18n="nav.contact">Contato</a>
+    </nav>
+    <button class="lang-toggle" type="button"
+            aria-label="Toggle language" data-lang-toggle>
+      <span data-lang-pt>PT</span> <span class="sep">|</span> <span data-lang-en>EN</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section id="hero" class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-portrait">
+        <img src="/assets/rosto.jpeg" width="220" height="220"
+             alt="Gustavo von Atzingen" loading="eager">
+      </div>
+      <div class="hero-text">
+        <h1>
+          Gustavo <em>von</em> Atzingen
+        </h1>
+        <p class="hero-tagline" data-bind="profile.tagline"></p>
+        <p class="hero-oneliner" data-bind="profile.oneLiner"></p>
+        <ul class="role-row" data-bind="profile.roles.compact"></ul>
+        <ul class="contact-row" data-bind="profile.contact.compact"></ul>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#sobre">
+      <span data-i18n="hero.scrollHint">rolar</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+           stroke="currentColor" stroke-width="1.5">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </section>
+
+  <section id="sobre">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">01</span>
+        <h2 data-i18n="section.about.title">Sobre</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-prose" data-bind="profile.bio"></div>
+        <aside class="about-side" data-bind="profile.highlights"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">02</span>
+        <h2 data-i18n="section.areas.title">Áreas de pesquisa & atuação</h2>
+      </div>
+      <p class="section-helper" data-i18n="section.areas.helper">Clique em uma área para filtrar projetos e repositórios.</p>
+      <ul class="area-pills" data-bind="profile.areas"></ul>
+    </div>
+  </section>
+
+  <section id="papeis">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">03</span>
+        <h2 data-i18n="section.roles.title">Atuação</h2>
+      </div>
+      <div class="roles-grid" data-bind="profile.roles.full"></div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">04</span>
+        <h2 data-i18n="section.projects.title">Projetos em destaque</h2>
+      </div>
+      <div class="projects-grid" data-bind="projects.featured"></div>
+    </div>
+  </section>
+
+  <section id="ensino">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">05</span>
+        <h2 data-i18n="section.teaching.title">Ensino, pesquisa & divulgação</h2>
+      </div>
+      <div class="teaching-grid" data-bind="profile.teaching"></div>
+    </div>
+  </section>
+
+  <section id="publicacoes">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">06</span>
+        <h2 data-i18n="section.publications.title">Publicações selecionadas</h2>
+      </div>
+      <ol class="pub-list" data-bind="publications.selected"></ol>
+      <p class="pub-cta">
+        <a target="_blank" rel="noopener" data-bind="publications.lattesCta"></a>
+      </p>
+    </div>
+  </section>
+
+  <section id="open-source">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">07</span>
+        <h2 data-i18n="section.opensource.title">Open source</h2>
+      </div>
+      <div class="repo-controls">
+        <input type="search" id="repo-search"
+               data-i18n-placeholder="section.opensource.searchPlaceholder">
+        <label class="recent-toggle">
+          <input type="checkbox" id="repo-recent">
+          <span data-i18n="section.opensource.recentOnly"></span>
+        </label>
+        <ul class="lang-pills" data-bind="repos.languages"></ul>
+      </div>
+      <div class="repo-table-wrap">
+        <table class="repo-table">
+          <thead>
+            <tr>
+              <th data-i18n="section.opensource.cols.repo">repositório</th>
+              <th data-i18n="section.opensource.cols.org">organização</th>
+              <th data-i18n="section.opensource.cols.lang">linguagem</th>
+              <th data-i18n="section.opensource.cols.stars">⭐</th>
+              <th data-i18n="section.opensource.cols.updated">atualizado</th>
+              <th data-i18n="section.opensource.cols.desc">descrição</th>
+            </tr>
+          </thead>
+          <tbody data-bind="repos.rows"></tbody>
+        </table>
+        <p class="repo-empty" hidden data-i18n="section.opensource.empty"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="shell">
+      <div class="section-head">
+        <span class="eyebrow">08</span>
+        <h2 data-i18n="section.contact.title">Contato</h2>
+      </div>
+      <p class="contact-cta" data-i18n="section.contact.cta"></p>
+      <div class="contact-grid" data-bind="profile.contact.full"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-inner">
+    <span>© <span data-bind="footer.year"></span> Gustavo von Atzingen</span>
+    <span><span data-i18n="footer.builtAt">build</span> <a data-bind="footer.build"></a></span>
+  </div>
+</footer>
+
+<script src="/js/i18n.js" defer></script>
+<script src="/js/main.js" defer></script>
+<script src="/js/filter.js" defer></script>
+
+</body>
+</html>
