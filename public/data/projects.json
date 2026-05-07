@@ -85,27 +85,27 @@
       }
     },
     {
-      "name": "alimentacidades",
-      "org": "CEPAD-IFSP",
-      "url": "https://github.com/CEPAD-IFSP/alimentacidades",
+      "name": "cestainteligente",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/cestainteligente",
       "demo": null,
-      "areas": ["gov"],
-      "stack": ["JavaScript", "Django", "PostgreSQL"],
+      "areas": ["gov", "ml"],
+      "stack": ["Python", "ARIMA", "HTML"],
       "summary": {
-        "pt": "Plataforma de monitoramento alimentar municipal — dados públicos + dashboards.",
-        "en": "Municipal food-monitoring platform — public data and dashboards."
+        "pt": "MVP histórico + predição IPCA por subitem para 5 itens da cesta básica em SP, com modelo ARIMA.",
+        "en": "Historical + ARIMA-based predictive MVP for IPCA sub-items across 5 staple-basket products in São Paulo."
       }
     },
     {
-      "name": "iaprev",
-      "org": "inteligenciaatuarial",
-      "url": "https://github.com/inteligenciaatuarial/iaprev",
+      "name": "crescimento_plantas",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/crescimento_plantas",
       "demo": null,
-      "areas": ["atuarial", "gov"],
-      "stack": ["Django", "Python"],
+      "areas": ["cv", "ml"],
+      "stack": ["Python", "OpenCV", "SAM3"],
       "summary": {
-        "pt": "Sistema de gestão de segurados RPPS — substituto moderno do ProtecWeb.",
-        "en": "Member-management system for Brazilian public pension funds — modern replacement for ProtecWeb."
+        "pt": "Análise de crescimento de alface por segmentação de imagens — comparação entre HSV clássico e SAM3.",
+        "en": "Lettuce growth analysis through image segmentation — comparing classical HSV against SAM3."
       }
     }
   ]
