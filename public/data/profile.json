@@ -1,0 +1,128 @@
+{
+  "name": "Gustavo von Atzingen",
+  "fullName": "Gustavo Voltani von Atzingen",
+  "tagline": {
+    "pt": "Professor · Pesquisador · Engenheiro",
+    "en": "Professor · Researcher · Engineer"
+  },
+  "oneLiner": {
+    "pt": "Computer vision, EEG, atuarial e sistemas para educação e governo.",
+    "en": "Computer vision, EEG, actuarial and systems for education and government."
+  },
+  "base": "Piracicaba / SP",
+  "education": [
+    { "level": "PhD", "field": "Engenharia de Alimentos", "inst": "FZEA-USP", "year": 2017 },
+    { "level": "MSc", "field": "Engenharia de Alimentos", "inst": "FZEA-USP", "year": 2013 },
+    { "level": "BSc", "field": "Física",                  "inst": "IFSC-USP", "year": 2007 }
+  ],
+  "bio": {
+    "pt": [
+      "Físico de formação, engenheiro de alimentos por treino, e hoje muito mais. Bacharel em Física pela USP/IFSC (2007), com Mestrado e Doutorado em Engenharia de Alimentos pela FZEA-USP (2013/2017), trabalhando com instrumentação eletrônica e simulação numérica de processos térmicos. Sou professor no IFSP Campus Piracicaba desde então.",
+      "Como pesquisador, trabalho com visão computacional, EEG, machine learning aplicado e instrumentação embarcada. No CEPAD-IFSP coordeno e participo de projetos de plataformas digitais para iniciativas governamentais — Plataforma Nilo Peçanha (rede federal CET/IF), dashboards de cestas básicas (MDS), agroecologia (MMA) — e fui coordenador do programa IFMAISEMPREENDEDOR em Piracicaba (2023, 2025).",
+      "Em paralelo, fundei a Quickium e sou sócio da Inteligência Atuarial, onde construímos motores de cálculo e sistemas de gestão atuarial para RPPS. Filosofia: software que precisa rodar, ser mantido e gerar valor mensurável."
+    ],
+    "en": [
+      "Physicist by training, food engineer by formation, and quite a bit more today. BSc in Physics from USP/IFSC (2007), with MSc and PhD in Food Engineering from FZEA-USP (2013/2017), working on electronic instrumentation and numerical simulation of thermal processes. Professor at IFSP Piracicaba ever since.",
+      "As a researcher I work on computer vision, EEG, applied machine learning and embedded instrumentation. At CEPAD-IFSP I coordinate and contribute to digital-platform projects for government initiatives — the Plataforma Nilo Peçanha (Brazil's federal CET/IF data platform), food-basket dashboards (MDS), agroecology (MMA) — and I led the IFMAISEMPREENDEDOR program in Piracicaba (2023, 2025).",
+      "In parallel I founded Quickium and I'm a partner at Inteligência Atuarial, where we build actuarial calculation engines and management systems for Brazilian public pension funds (RPPS). Philosophy: software that has to run, be maintained, and deliver measurable value."
+    ]
+  },
+  "roles": [
+    {
+      "id": "ifsp",
+      "org": "IFSP Piracicaba",
+      "title": { "pt": "Professor", "en": "Professor" },
+      "period": "2014 — atual",
+      "url": "https://prc.ifsp.edu.br",
+      "description": {
+        "pt": "Disciplinas de Inteligência Artificial, Visão Computacional e Visão Computacional Embarcada. Material aberto em vários repositórios, incluindo curso FIC com 28⭐ e webinar de Visão Computacional Embarcada com 10⭐.",
+        "en": "Courses in Artificial Intelligence, Computer Vision and Embedded Computer Vision. Open material across several repositories, including a 28-star FIC course and a 10-star Embedded Computer Vision webinar."
+      },
+      "projects": ["IA-FIC-IFSP", "Webinar-Visão-Computacional-Embarcada", "VisaoComputacionalEmbarcada-2024", "R-exams-Interface", "Oficinas_IFEMPREENDEDOR_2024"]
+    },
+    {
+      "id": "cepad",
+      "org": "CEPAD-IFSP",
+      "title": { "pt": "Pesquisador", "en": "Researcher" },
+      "period": "2018 — atual",
+      "url": "https://cepad.digital",
+      "description": {
+        "pt": "Centro de Pesquisa em Análise de Dados do IFSP. Plataformas digitais e analytics para iniciativas governamentais em parceria com MDS, MMA, FNDE.",
+        "en": "Data Analysis Research Centre at IFSP. Digital platforms and analytics for government initiatives in partnership with the Ministries of Social Development, Environment, and the FNDE."
+      },
+      "projects": ["alimentacidades", "dash-bacias", "agroecologiaMMA", "deserto-ia", "cozinhasolidaria", "agrotoxico-analytics", "Airflow-ETL", "nea-dashboard"]
+    },
+    {
+      "id": "pnp",
+      "org": "Plataforma Nilo Peçanha",
+      "title": { "pt": "Cientista de Dados", "en": "Data Scientist" },
+      "period": "2023 — atual",
+      "url": "https://www.gov.br/pnp",
+      "description": {
+        "pt": "Plataforma federal oficial de dados da rede CET/IF (SETEC/MEC). Engenharia de dados, dashboards e ferramentas de extração.",
+        "en": "Brazil's federal CET/IF data platform (SETEC/MEC). Data engineering, dashboards, extraction tooling."
+      },
+      "projects": ["kiosk-pnp", "pnp-web", "ExtratorV2", "pnp-monitor", "pnp_publicada"]
+    },
+    {
+      "id": "quickium",
+      "org": "Quickium",
+      "title": { "pt": "Founder & CTO", "en": "Founder & CTO" },
+      "period": "—",
+      "url": "https://quickium.com",
+      "description": {
+        "pt": "Tecnologia e soluções customizadas. (Descrição completa pendente — ajuste em data/profile.json.)",
+        "en": "Technology and custom solutions. (Full description pending — edit data/profile.json.)"
+      },
+      "projects": []
+    },
+    {
+      "id": "iatuarial",
+      "org": "Inteligência Atuarial",
+      "title": { "pt": "Sócio", "en": "Partner" },
+      "period": "—",
+      "url": "https://inteligenciaatuarial.com.br",
+      "description": {
+        "pt": "Motores de cálculo e sistemas de gestão atuarial para Regimes Próprios de Previdência Social.",
+        "en": "Actuarial calculation engines and management systems for Brazilian public-employee pension funds (RPPS)."
+      },
+      "projects": ["iaprev", "motor-ia", "portal-bases", "magma"]
+    }
+  ],
+  "areas": [
+    { "id": "ml",       "label": { "pt": "Machine Learning",   "en": "Machine Learning" } },
+    { "id": "cv",       "label": { "pt": "Computer Vision",    "en": "Computer Vision" } },
+    { "id": "cv-embed", "label": { "pt": "CV Embarcada",       "en": "Embedded CV" } },
+    { "id": "eeg",      "label": { "pt": "EEG / Sinais",       "en": "EEG / Signals" } },
+    { "id": "atuarial", "label": { "pt": "Atuarial / RPPS",    "en": "Actuarial / RPPS" } },
+    { "id": "powerbi",  "label": { "pt": "Power BI / Data Eng","en": "Power BI / Data Eng" } },
+    { "id": "ai-tools", "label": { "pt": "AI Dev Tools",       "en": "AI Dev Tools" } },
+    { "id": "gov",      "label": { "pt": "Government Data",    "en": "Government Data" } }
+  ],
+  "teaching": {
+    "courses": ["Inteligência Artificial", "Visão Computacional", "Visão Computacional Embarcada"],
+    "openMaterial": ["IA-FIC-IFSP", "R-exams-Interface", "Oficinas_IFEMPREENDEDOR_2024"],
+    "talks": ["Webinar-Visão-Computacional-Embarcada"],
+    "programsCoordinated": ["IFMAISEMPREENDEDOR Piracicaba (2023)", "IFMAISEMPREENDEDOR Piracicaba (2025)"],
+    "advisingActive": [
+      "IC — EEG e tarefas cognitivas com IA (Eng. Computação)",
+      "IC — EEG e qualidades de café com IA (Eng. Computação)",
+      "IC — Corretor de Scripts (Eng. Computação)",
+      "IA Embarcada (parceria Cubatão + Guarulhos)"
+    ]
+  },
+  "contact": {
+    "emails": [
+      { "label": "IFSP",     "addr": "gustavo.von@ifsp.edu.br" },
+      { "label": "Pessoal",  "addr": "gustavo.von.atzingen@gmail.com" }
+    ],
+    "github": [
+      { "label": "Atzingen",          "url": "https://github.com/Atzingen" },
+      { "label": "CEPAD-IFSP",        "url": "https://github.com/CEPAD-IFSP" },
+      { "label": "inteligenciaatuarial","url": "https://github.com/inteligenciaatuarial" },
+      { "label": "Rede-DSBR",         "url": "https://github.com/Rede-DSBR" }
+    ],
+    "lattes":   "http://lattes.cnpq.br/5173282107514295",
+    "linkedin": "https://www.linkedin.com/in/gustavoatzingen/"
+  }
+}

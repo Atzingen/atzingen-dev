@@ -1,0 +1,112 @@
+{
+  "featured": [
+    {
+      "name": "hey-jarvis",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/hey-jarvis",
+      "demo": null,
+      "areas": ["ai-tools", "ml"],
+      "stack": ["Python", "openWakeWord", "faster-whisper", "piper TTS"],
+      "summary": {
+        "pt": "Lançador de projetos por voz para Linux/Hyprland — abre layouts, conversa com Claude ou suspende.",
+        "en": "Voice-activated dev launcher for Linux/Hyprland — opens project layouts, talks to Claude, or suspends."
+      }
+    },
+    {
+      "name": "IA-FIC-IFSP",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/IA-FIC-IFSP",
+      "demo": null,
+      "areas": ["ml", "cv"],
+      "stack": ["Jupyter", "Python", "scikit-learn"],
+      "summary": {
+        "pt": "Material do curso FIC do IFSP Piracicaba — fundamentos de Inteligência Artificial em notebooks.",
+        "en": "Course material for the IFSP Piracicaba FIC programme — Artificial Intelligence foundations in notebooks."
+      }
+    },
+    {
+      "name": "tmdl-parser",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/tmdl-parser",
+      "demo": null,
+      "areas": ["powerbi"],
+      "stack": ["Python"],
+      "summary": {
+        "pt": "Biblioteca Python que faz parse de arquivos TMDL (Tabular Model Definition Language) do Power BI em estruturas tipadas.",
+        "en": "Python library that parses Power BI TMDL (Tabular Model Definition Language) files into typed structures."
+      }
+    },
+    {
+      "name": "Webinar-Visão-Computacional-Embarcada",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/Webinar-Vis-o-computacional-Embarcada",
+      "demo": null,
+      "areas": ["cv", "cv-embed"],
+      "stack": ["Jupyter", "OpenCV", "TensorFlow Lite"],
+      "summary": {
+        "pt": "Notebooks e slides do webinar sobre visão computacional rodando em hardware embarcado.",
+        "en": "Notebooks and slides for the webinar on computer vision on embedded hardware."
+      }
+    },
+    {
+      "name": "fii-scanner",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/fii-scanner",
+      "demo": "https://fii-alert.atzingen.dev",
+      "areas": ["powerbi"],
+      "stack": ["Python", "Flask", "yfinance", "Telegram Bot"],
+      "summary": {
+        "pt": "Scanner de FIIs da B3 com 4 sinais combinados (z-score, queda sem notícia, P/VP, DY) e alertas no Telegram.",
+        "en": "B3 real-estate fund scanner combining 4 signals (z-score, unexplained drop, P/B, DY) with Telegram alerts."
+      }
+    },
+    {
+      "name": "EEG_Sweetners",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/EEG_Sweetners",
+      "demo": null,
+      "areas": ["eeg", "ml"],
+      "stack": ["Python", "Jupyter", "TensorFlow"],
+      "summary": {
+        "pt": "Dataset e modelos para comparar o efeito de adoçantes vs açúcar em sinais de EEG. Base do paper 2022 em Frontiers in Nutrition.",
+        "en": "Dataset and NN models comparing sweeteners vs sugar effects on EEG signals. Backed our 2022 Frontiers in Nutrition paper."
+      }
+    },
+    {
+      "name": "claude-monitor",
+      "org": "Atzingen",
+      "url": "https://github.com/Atzingen/claude-monitor",
+      "demo": null,
+      "areas": ["ai-tools"],
+      "stack": ["Python", "Textual"],
+      "summary": {
+        "pt": "Dashboard TUI para acompanhar e interagir com instâncias de Claude Code rodando localmente.",
+        "en": "TUI dashboard to monitor and interact with running Claude Code instances."
+      }
+    },
+    {
+      "name": "alimentacidades",
+      "org": "CEPAD-IFSP",
+      "url": "https://github.com/CEPAD-IFSP/alimentacidades",
+      "demo": null,
+      "areas": ["gov"],
+      "stack": ["JavaScript", "Django", "PostgreSQL"],
+      "summary": {
+        "pt": "Plataforma de monitoramento alimentar municipal — dados públicos + dashboards.",
+        "en": "Municipal food-monitoring platform — public data and dashboards."
+      }
+    },
+    {
+      "name": "iaprev",
+      "org": "inteligenciaatuarial",
+      "url": "https://github.com/inteligenciaatuarial/iaprev",
+      "demo": null,
+      "areas": ["atuarial", "gov"],
+      "stack": ["Django", "Python"],
+      "summary": {
+        "pt": "Sistema de gestão de segurados RPPS — substituto moderno do ProtecWeb.",
+        "en": "Member-management system for Brazilian public pension funds — modern replacement for ProtecWeb."
+      }
+    }
+  ]
+}

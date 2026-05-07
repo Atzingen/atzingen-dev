@@ -1,0 +1,86 @@
+{
+  "selected": [
+    {
+      "year": 2024,
+      "title": "Detection of news written by the ChatGPT through authorship attribution performed by a bidirectional LSTM model",
+      "venue": "Caderno Pedagógico",
+      "vol": "v.21, e9236",
+      "coauthors": ["IAQUINTA, A.F."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2023,
+      "title": "Improving Behavior Monitoring of Free-Moving Dairy Cows Using Noninvasive Wireless EEG Approach and Digital Signal Processing Techniques",
+      "venue": "Applied Sciences",
+      "vol": "v.13, p.10722",
+      "coauthors": ["Silva, A.C.S.", "Arce, A.I.C.", "Arteaga, H.", "Sarnighausen, V.C.R.", "Costa, E.J.X."],
+      "isFirstAuthor": false,
+      "url": "https://doi.org/10.3390/app132010722"
+    },
+    {
+      "year": 2022,
+      "title": "The convolutional neural network as a tool to classify electroencephalography data resulting from the consumption of juice sweetened with caloric or non-caloric sweeteners",
+      "venue": "Frontiers in Nutrition",
+      "vol": "v.9, p.1-14",
+      "coauthors": ["Arteaga, H.", "Silva, A.R.", "Ortega, N.F.", "Costa, E.J.X.", "Silva, A.C.S."],
+      "isFirstAuthor": true,
+      "url": "https://doi.org/10.3389/fnut.2022.901333"
+    },
+    {
+      "year": 2021,
+      "title": "EEG Multipurpose Eye Blink Detector using convolutional neural network",
+      "venue": "Research, Society and Development",
+      "vol": "v.10, e335101522712",
+      "coauthors": ["Iaquinta, A.F.", "Silva, A.C.S.", "Ferraz Jr, A.", "Toledo, J.M."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2020,
+      "title": "Classificador de trajetos para robôs de corrida seguidores de linha utilizando deep learning",
+      "venue": "Universitas (Mogi-Mirim)",
+      "vol": "v.14, p.71",
+      "coauthors": ["Ferraz, A.J.", "Pereira, G.M.", "Belgamo, A."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2019,
+      "title": "Electronic Instrumentation and Computational Simulation to Evaluate the Combined Use of Microwave and Infrared Technologies for Reheating Biphasic Foods",
+      "venue": "International Journal of Food Engineering",
+      "vol": "v.1, p.1/0192-11",
+      "coauthors": ["Piza, L.V.", "Costa, E.J.X."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2019,
+      "title": "Viscosities and Densities of Fatty Alcohol Mixtures from 298.15 to 338.15 K: Estimation by Kay's Rule and Prediction by the UNIFAC-VISCO and GC-UNIMOD Group Contribution Methods",
+      "venue": "Journal of Chemical and Engineering Data",
+      "vol": "v.64, p.1937-1947",
+      "coauthors": ["Pinto, C.N.", "Frugoli, G.Z.", "Florido, P.M.", "Rodrigues, C.E.C.", "Gonçalves, C.B."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2017,
+      "title": "Real-Time Control System Based on the Values of Derivative of the Redox Potential Aiming Nitrogen Removal in a Sequencing Batch Reactor Applied in Treating Dairy Wastewater",
+      "venue": "Water, Air and Soil Pollution",
+      "vol": "v.228, p.17-34",
+      "coauthors": ["Ribeiro, R.", "Lima, F.", "Okamoto, V.H.T.", "Arce, A.I.C.", "Tomamso, G.", "Costa, E.J.X."],
+      "isFirstAuthor": false,
+      "url": null
+    },
+    {
+      "year": 2015,
+      "title": "Lattice Boltzmann simulation of cafestol and kahweol extraction from green coffee beans in high-pressure system",
+      "venue": "Journal of Food Engineering",
+      "vol": "v.176, p.88-96",
+      "coauthors": ["Rosa, R.H.", "Belandria, V.", "Oliveira, A.L.", "Bostyn, S.", "Rabi, J.A."],
+      "isFirstAuthor": false,
+      "url": null
+    }
+  ],
+  "lattesUrl": "http://lattes.cnpq.br/5173282107514295"
+}
