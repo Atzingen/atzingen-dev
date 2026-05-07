@@ -30,10 +30,15 @@ jobs:
           python3 build.py
 
       - name: Smoke check
+        # Runner is on the LAN — pfSense has no hairpin NAT, so we hit nginx
+        # directly via 127.0.0.1 with the right Host header. The cert is
+        # served regardless and -k tolerates the IP/SAN mismatch.
         run: |
           set -e
-          for url in https://atzingen.dev/ https://atzingen.dev/data/profile.json https://atzingen.dev/data/build.json; do
-            code=$(curl -sk -o /dev/null -w '%{http_code}' "$url")
-            echo "$url -> $code"
+          for path in / /data/profile.json /data/build.json; do
+            code=$(curl -sk -o /dev/null -w '%{http_code}' \
+                        --resolve atzingen.dev:443:127.0.0.1 \
+                        "https://atzingen.dev$path")
+            echo "https://atzingen.dev$path -> $code"
             test "$code" = "200"
           done
