@@ -1,0 +1,17 @@
+# Generated artifacts
+public/data/repos.json
+public/data/build.json
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Local secrets
+.env
+.env.local
