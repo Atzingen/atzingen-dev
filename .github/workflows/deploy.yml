@@ -1,0 +1,39 @@
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, atzingen-dev]
+    timeout-minutes: 5
+    steps:
+      - name: Pull latest
+        run: |
+          set -e
+          cd /var/local/apps/atzingen-dev
+          git fetch origin main
+          git reset --hard origin/main
+          echo "head: $(git rev-parse --short HEAD)"
+
+      - name: Build (refresh repos.json + build.json)
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          cd /var/local/apps/atzingen-dev
+          python3 build.py
+
+      - name: Smoke check
+        run: |
+          set -e
+          for url in https://atzingen.dev/ https://atzingen.dev/data/profile.json https://atzingen.dev/data/build.json; do
+            code=$(curl -sk -o /dev/null -w '%{http_code}' "$url")
+            echo "$url -> $code"
+            test "$code" = "200"
+          done
