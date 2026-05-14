@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VT220 / atzingen.dev — Mockup 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MOCKUP 03 — DEC VT220 amber terminal / lab notebook
+   ============================================================ */
+:root{
+  --bg:      oklch(0.10 0.018 70);
+  --bg-deep: oklch(0.07 0.014 70);
+  --paper:   oklch(0.14 0.022 70);
+  --line:    oklch(0.32 0.060 75 / 0.55);
+  --line-2:  oklch(0.42 0.080 75 / 0.85);
+  --amber:   oklch(0.82 0.150 78);
+  --amber-h: oklch(0.92 0.180 78);
+  --amber-d: oklch(0.50 0.100 78);
+  --text:    oklch(0.86 0.110 75);
+  --text-m:  oklch(0.70 0.090 75);
+  --text-d:  oklch(0.50 0.060 75);
+  --warn:    oklch(0.74 0.180 35);
+  --good:    oklch(0.78 0.150 140);
+  --mono:    "IBM Plex Mono","JetBrains Mono",ui-monospace,monospace;
+  --max-w:   1180px;
+  --pad-x:   clamp(20px, 4vw, 56px);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--bg-deep); color:var(--text); font-family:var(--mono); font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased; font-weight:400; }
+body{ min-height:100vh; overflow-x:hidden; background:
+   radial-gradient(ellipse 1200px 700px at 50% -5%, oklch(0.18 0.06 78 / 0.30), transparent 60%),
+   var(--bg);
+}
+/* CRT scanlines */
+body::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:200;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 2px, oklch(0 0 0 / 0.10) 2px, oklch(0 0 0 / 0.10) 3px);
+  mix-blend-mode:multiply; opacity:0.85;
+}
+/* subtle vignette */
+body::after{ content:""; position:fixed; inset:0; pointer-events:none; z-index:201;
+  background: radial-gradient(ellipse 120% 90% at 50% 50%, transparent 55%, oklch(0 0 0 / 0.45) 100%);
+}
+a{ color:var(--amber); text-decoration:underline; text-decoration-color:var(--amber-d); text-decoration-thickness:1px; text-underline-offset:3px; }
+a:hover{ color:var(--amber-h); text-shadow:0 0 8px currentColor; }
+.shell{ max-width:var(--max-w); margin:0 auto; padding:0 var(--pad-x); }
+
+/* ============================================================ STATUS BAR (tmux-like) */
+.status{ position:sticky; top:0; z-index:50; background:oklch(0.16 0.04 78); border-bottom:1px solid var(--line-2); font-size:12px; }
+.status-inner{ display:flex; gap:0; min-height:30px; align-items:stretch; }
+.status-cell{ padding:6px 14px; display:flex; align-items:center; gap:8px; letter-spacing:0.02em; }
+.status-cell.bg-a{ background:var(--amber); color:var(--bg-deep); font-weight:500; }
+.status-cell.bg-d{ background:oklch(0.20 0.04 78); color:var(--text); }
+.status-cell.flex{ flex:1; color:var(--text-m); border-left:1px solid var(--line); }
+.status-cell.r{ color:var(--text-m); border-left:1px solid var(--line); }
+.status-cell .blink{ color:var(--good); animation:b1 1.2s steps(2) infinite; }
+@keyframes b1{ 50%{ opacity:0.3; } }
+
+/* ============================================================ HERO — terminal session */
+.term{
+  padding: clamp(48px,6vw,72px) 0 clamp(24px,3vw,40px);
+  position:relative;
+}
+.term::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:60px;
+  background:linear-gradient(to bottom, oklch(0.18 0.04 78 / 0.3), transparent);
+  pointer-events:none;
+}
+.prompt{ color:var(--amber); }
+.prompt::before{ content:"atzingen@dev:~$ "; color:var(--good); }
+.prompt-out{ color:var(--text-m); margin:6px 0 0; }
+.cmd{ color:var(--amber); font-weight:500; }
+.cursor{ display:inline-block; width:0.6em; height:1em; background:var(--amber); margin-left:2px; vertical-align:-2px; animation:c1 1.05s steps(2) infinite; box-shadow:0 0 6px var(--amber); }
+@keyframes c1{ 50%{opacity:0;} }
+
+.hero-grid{ display:grid; grid-template-columns: 200px 1fr; gap:40px; align-items:start; margin-top:18px; }
+@media (max-width:720px){ .hero-grid{ grid-template-columns:1fr; gap:24px; } }
+.ascii-portrait{ position:relative; }
+.ascii-portrait::before, .ascii-portrait::after{ position:absolute; font-family:var(--mono); color:var(--amber-d); font-size:14px; }
+.ascii-portrait::before{ content:"╭─ ID ─────────────────╮"; top:-22px; left:-2px; right:-2px; white-space:pre; overflow:hidden; }
+.ascii-portrait::after{  content:"╰──────────────────────╯"; bottom:-22px; left:-2px; right:-2px; white-space:pre; overflow:hidden; }
+.ascii-portrait img{ width:200px; height:200px; display:block; object-fit:cover;
+  filter: grayscale(1) contrast(1.4) brightness(0.9) sepia(1) hue-rotate(-15deg) saturate(2);
+  border:1px solid var(--line-2);
+}
+.id-side{ font-family:var(--mono); font-size:12px; color:var(--text-m); margin-top:14px; }
+.id-side b{ color:var(--amber); font-weight:500; }
+
+h1.name{ font-family:var(--mono); font-weight:500; font-size:clamp(28px, 4.4vw, 48px); margin:0 0 2px; color:var(--amber-h); letter-spacing:0; text-shadow:0 0 6px oklch(0.82 0.15 78 / 0.5); }
+h1.name em{ font-style:italic; color:var(--text); }
+.subhead{ color:var(--text-m); margin:0 0 18px; font-size:14px; }
+.tagline-tag{ display:inline-block; padding:0 8px; background:var(--amber); color:var(--bg-deep); font-size:11px; letter-spacing:0.06em; font-weight:600; margin-right:6px; }
+
+.session-block{ background:oklch(0.12 0.022 78 / 0.7); border:1px dashed var(--line-2); padding:14px 16px; margin:14px 0; font-size:13.5px; }
+.session-block .lab{ color:var(--amber-d); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px; }
+.session-block b{ color:var(--amber); font-weight:500; }
+
+/* ============================================================ SECTIONS */
+section.unit{ padding: clamp(48px,5vw,72px) 0; }
+.unit-head{ font-family:var(--mono); color:var(--amber); margin-bottom:24px; white-space:pre; overflow:hidden; }
+.unit-head h2{ display:inline; font:inherit; margin:0; color:var(--amber-h); text-shadow:0 0 6px oklch(0.82 0.15 78 / 0.45); }
+.unit-head .ruler{ display:block; color:var(--line-2); }
+.unit-meta{ color:var(--text-d); font-size:11.5px; letter-spacing:0.06em; }
+
+/* sobre — like cat sobre.txt */
+.about-prose p{ color:var(--text-m); font-size:14.5px; max-width:78ch; margin:0 0 1em; }
+.about-prose p strong{ color:var(--text); font-weight:500; }
+.about-prose .quote-bar{ display:inline-block; width:3px; height:1.1em; background:var(--amber); vertical-align:-2px; margin-right:8px; }
+
+.kv{ display:grid; grid-template-columns:auto 1fr; gap:8px 22px; font-size:13px; max-width:60ch; }
+.kv dt{ color:var(--text-d); letter-spacing:0.08em; text-transform:uppercase; font-size:11.5px; }
+.kv dd{ margin:0; color:var(--text); }
+.kv dd b{ color:var(--amber); font-weight:500; }
+
+/* areas — listed as ls --color */
+.ls-row{ display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:6px 18px; font-size:14px; }
+.ls-row a{ color:var(--amber); text-decoration:none; display:flex; align-items:baseline; gap:8px; padding:4px 0; }
+.ls-row a::before{ content:"●"; color:var(--good); font-size:8px; }
+.ls-row a:hover{ background:oklch(0.20 0.06 78 / 0.5); color:var(--amber-h); }
+
+/* roles — pseudo-systemd unit */
+.roles{ display:grid; grid-template-columns:1fr; gap:0; }
+.unit-svc{ border-top:1px solid var(--line); padding:16px 0; display:grid; grid-template-columns: 24px 1fr 120px; gap:14px; align-items:start; }
+.unit-svc:first-of-type{ border-top:0; }
+.unit-svc .dot{ width:10px; height:10px; border-radius:50%; background:var(--good); box-shadow:0 0 8px var(--good); margin-top:6px; }
+.unit-svc .dot.idle{ background:var(--amber); box-shadow:0 0 8px var(--amber); }
+.unit-svc .nm{ font-size:15px; color:var(--text); }
+.unit-svc .nm b{ color:var(--amber); font-weight:500; }
+.unit-svc .desc{ color:var(--text-m); font-size:13px; margin-top:4px; }
+.unit-svc .meta{ color:var(--text-d); font-size:11.5px; text-align:right; letter-spacing:0.04em; }
+.unit-svc .meta b{ color:var(--good); font-weight:500; }
+
+/* publications as bib log */
+.pubs{ list-style:none; padding:0; margin:0; }
+.pubs li{ padding:14px 0; border-top:1px solid var(--line); display:grid; grid-template-columns: 80px 1fr; gap:18px; }
+.pubs li:first-child{ border-top:0; }
+.pubs .yr{ color:var(--amber); font-size:14px; font-weight:500; padding-top:2px; }
+.pubs .ti{ color:var(--text); }
+.pubs .ti a{ color:var(--text); }
+.pubs .ti a:hover{ color:var(--amber); }
+.pubs .au{ display:block; color:var(--text-d); font-size:12px; margin-top:4px; }
+.pubs .tag{ display:inline-block; padding:1px 6px; background:oklch(0.25 0.06 78); color:var(--amber); font-size:10px; letter-spacing:0.06em; margin-right:8px; }
+
+/* repos */
+.repos{ width:100%; border-collapse:collapse; font-size:13px; font-family:var(--mono); }
+.repos th, .repos td{ text-align:left; padding:8px 12px; border-bottom:1px solid var(--line); }
+.repos th{ color:var(--text-d); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; font-weight:500; }
+.repos tr:hover td{ background:oklch(0.20 0.06 78 / 0.4); }
+.repos td.num{ text-align:right; color:var(--good); }
+.repos td.lang{ color:var(--amber); }
+
+/* footer */
+.foot{ padding:24px 0; color:var(--text-d); font-size:11.5px; border-top:1px solid var(--line); }
+.foot-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; align-items:center; }
+.foot a{ color:var(--text-m); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<header class="status"><div class="status-inner">
+  <div class="status-cell bg-a"> ATZINGEN.DEV </div>
+  <div class="status-cell bg-d"> 0:tmux </div>
+  <div class="status-cell flex"> <span class="blink">●</span> ONLINE · 17y up · load 0.42 · 5 tabs </div>
+  <div class="status-cell r"> 14 may 2026 · 09:42 BRT </div>
+</div></header>
+
+<main>
+
+<section class="term">
+  <div class="shell">
+    <div><span class="prompt"><span class="cmd">whoami --full</span></span></div>
+    <div class="prompt-out">
+      <div class="hero-grid">
+        <div class="ascii-portrait"><img src="/assets/rosto.jpeg" alt="Gustavo von Atzingen">
+          <div class="id-side">
+            <div><b>uid</b> 1547</div>
+            <div><b>gid</b> 0 (root)</div>
+            <div><b>home</b> /atzingen.dev</div>
+            <div><b>shell</b> /bin/zsh</div>
+          </div>
+        </div>
+        <div>
+          <h1 class="name">gustavo <em>von</em> atzingen<span class="cursor"></span></h1>
+          <p class="subhead">
+            <span class="tagline-tag">PROFESSOR</span>
+            <span class="tagline-tag">PESQUISADOR</span>
+            <span class="tagline-tag">ENGENHEIRO</span>
+          </p>
+          <div class="session-block">
+            <div class="lab">// one-liner</div>
+            Computer vision, EEG, atuarial e sistemas para <b>educação e governo</b>. Software que precisa rodar, ser mantido e gerar valor mensurável.
+          </div>
+          <div class="session-block">
+            <div class="lab">// active roles</div>
+            <div><b>IFSP Piracicaba</b> — Professor (2014→)</div>
+            <div><b>CEPAD-IFSP</b> — Pesquisador (2018→)</div>
+            <div><b>Plataforma Nilo Peçanha</b> — Cientista de Dados (2023→)</div>
+            <div><b>Quickium</b> — Founder / CTO</div>
+            <div><b>Inteligência Atuarial</b> — Sócio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="unit" id="sobre">
+  <div class="shell">
+    <div class="unit-head">
+      <span class="ruler">┌──────────────────────────────────────────────────────────────────────────┐</span>
+      │ <span class="prompt"><span class="cmd">cat sobre.md</span></span>                                                       │
+      <span class="ruler">└──────────────────────────────────────────────────────────────────────────┘</span>
+      <h2 style="display:none">Sobre</h2>
+    </div>
+    <div class="about-prose">
+      <p><span class="quote-bar"></span>Físico de formação, engenheiro de alimentos por treino, e hoje muito mais. <strong>Bacharel em Física pela USP/IFSC (2007)</strong>, com Mestrado e Doutorado em Engenharia de Alimentos pela FZEA-USP (2013/2017), trabalhando com instrumentação eletrônica e simulação numérica de processos térmicos. Sou professor no IFSP Piracicaba desde então.</p>
+      <p>Como pesquisador, trabalho com <strong>visão computacional, EEG, machine learning aplicado e instrumentação embarcada</strong>. No CEPAD-IFSP coordeno plataformas digitais para iniciativas governamentais — Plataforma Nilo Peçanha (rede CET/IF), dashboards de cestas básicas (MDS), agroecologia (MMA).</p>
+      <p>Em paralelo, fundei a <strong>Quickium</strong> e sou sócio da <strong>Inteligência Atuarial</strong>, onde construímos motores de cálculo e sistemas de gestão atuarial para RPPS.</p>
+    </div>
+    <dl class="kv" style="margin-top:22px">
+      <dt>phd</dt><dd>Eng. Alimentos · <b>FZEA-USP 2017</b></dd>
+      <dt>msc</dt><dd>Eng. Alimentos · <b>FZEA-USP 2013</b></dd>
+      <dt>bsc</dt><dd>Física · <b>IFSC-USP 2007</b></dd>
+      <dt>base</dt><dd>Piracicaba / SP</dd>
+      <dt>lattes</dt><dd><a href="#">5173282107514295</a></dd>
+    </dl>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="unit" id="areas">
+  <div class="shell">
+    <div class="unit-head">
+      <span class="ruler">┌──────────────────────────────────────────────────────────────────────────┐</span>
+      │ <span class="prompt"><span class="cmd">ls -la ~/areas/</span></span>                                                    │
+      <span class="ruler">└──────────────────────────────────────────────────────────────────────────┘</span>
+    </div>
+    <div class="ls-row">
+      <a href="#">machine_learning/</a>
+      <a href="#">computer_vision/</a>
+      <a href="#">cv_embarcada/</a>
+      <a href="#">eeg_signals/</a>
+      <a href="#">atuarial_rpps/</a>
+      <a href="#">powerbi_data_eng/</a>
+      <a href="#">ai_dev_tools/</a>
+      <a href="#">government_data/</a>
+    </div>
+  </div>
+</section>
+
+<!-- ATUAÇÃO -->
+<section class="unit" id="papeis">
+  <div class="shell">
+    <div class="unit-head">
+      <span class="ruler">┌──────────────────────────────────────────────────────────────────────────┐</span>
+      │ <span class="prompt"><span class="cmd">systemctl list-units --type=role</span></span>                                  │
+      <span class="ruler">└──────────────────────────────────────────────────────────────────────────┘</span>
+    </div>
+    <div class="roles">
+      <div class="unit-svc"><span class="dot"></span>
+        <div><div class="nm"><b>ifsp.service</b> — Professor</div>
+          <div class="desc">Inteligência Artificial, Visão Computacional, Visão Computacional Embarcada. FIC 28⭐, Webinar CV Embarcada 10⭐.</div></div>
+        <div class="meta">since <b>2014</b><br>active · running</div></div>
+      <div class="unit-svc"><span class="dot"></span>
+        <div><div class="nm"><b>cepad.service</b> — Pesquisador</div>
+          <div class="desc">Plataformas digitais e analytics para iniciativas governamentais (MDS, MMA, FNDE).</div></div>
+        <div class="meta">since <b>2018</b><br>active · running</div></div>
+      <div class="unit-svc"><span class="dot"></span>
+        <div><div class="nm"><b>pnp.service</b> — Cientista de Dados</div>
+          <div class="desc">Plataforma federal oficial de dados da rede CET/IF (SETEC/MEC).</div></div>
+        <div class="meta">since <b>2023</b><br>active · running</div></div>
+      <div class="unit-svc"><span class="dot idle"></span>
+        <div><div class="nm"><b>quickium.service</b> — Founder / CTO</div>
+          <div class="desc">Tecnologia e soluções customizadas. Motor de visão computacional embarcada e infra de deploy.</div></div>
+        <div class="meta">since <b>2019</b><br>active · running</div></div>
+      <div class="unit-svc"><span class="dot idle"></span>
+        <div><div class="nm"><b>iatuarial.service</b> — Sócio</div>
+          <div class="desc">Motores de cálculo e sistemas de gestão atuarial para Regimes Próprios de Previdência Social.</div></div>
+        <div class="meta">since <b>2021</b><br>active · running</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICAÇÕES -->
+<section class="unit" id="pubs">
+  <div class="shell">
+    <div class="unit-head">
+      <span class="ruler">┌──────────────────────────────────────────────────────────────────────────┐</span>
+      │ <span class="prompt"><span class="cmd">grep -rl "@inproceedings" ~/papers/ | sort -r</span></span>                     │
+      <span class="ruler">└──────────────────────────────────────────────────────────────────────────┘</span>
+    </div>
+    <ol class="pubs">
+      <li><div class="yr">2024</div>
+          <div><span class="tag">FIRST</span><a href="#">EEG-based cognitive task classification with CNN ensembles</a>
+               <span class="au">Atzingen G.V., Silva R., Souza B. — IEEE Access</span></div></li>
+      <li><div class="yr">2023</div>
+          <div><span class="tag">CO-AUT</span><a href="#">Embedded computer vision on RP2040 for industrial inspection</a>
+               <span class="au">Silva R., Atzingen G.V. — JCMSE</span></div></li>
+      <li><div class="yr">2022</div>
+          <div><span class="tag">FIRST</span><a href="#">Actuarial projection engines for Brazilian public pension funds</a>
+               <span class="au">Atzingen G.V., Almeida P. — RBPS</span></div></li>
+      <li><div class="yr">2020</div>
+          <div><span class="tag">CO-AUT</span><a href="#">Thermal process simulation in food extrusion</a>
+               <span class="au">Costa M., Atzingen G.V. — J. Food Engineering</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section class="unit" id="repo">
+  <div class="shell">
+    <div class="unit-head">
+      <span class="ruler">┌──────────────────────────────────────────────────────────────────────────┐</span>
+      │ <span class="prompt"><span class="cmd">gh repo list --sort updated --limit 5</span></span>                              │
+      <span class="ruler">└──────────────────────────────────────────────────────────────────────────┘</span>
+    </div>
+    <table class="repos">
+      <thead><tr><th>repo</th><th>org</th><th>lang</th><th>stars</th><th>updated</th></tr></thead>
+      <tbody>
+        <tr><td>IA-FIC-IFSP</td><td>Atzingen</td><td class="lang">jupyter</td><td class="num">28</td><td>3d</td></tr>
+        <tr><td>Webinar-Visao-Computacional-Embarcada</td><td>Atzingen</td><td class="lang">python</td><td class="num">10</td><td>2w</td></tr>
+        <tr><td>alimentacidades</td><td>CEPAD-IFSP</td><td class="lang">python</td><td class="num">6</td><td>1d</td></tr>
+        <tr><td>pnp-web</td><td>Rede-DSBR</td><td class="lang">typescript</td><td class="num">4</td><td>4d</td></tr>
+        <tr><td>motor-ia</td><td>inteligenciaatuarial</td><td class="lang">python</td><td class="num">2</td><td>5d</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="foot"><div class="shell foot-row">
+  <span>EOF · © 2026 G.V.Atzingen · MOCKUP 03 / VT220 amber phosphor</span>
+  <a href="../">↩ todos os mockups</a>
+</div></footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SYNTH / atzingen.dev — Mockup 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Major+Mono+Display&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MOCKUP 04 — Synthwave / Outrun Lab
+   ============================================================ */
+:root{
+  --bg:        oklch(0.10 0.045 295);
+  --bg-deep:   oklch(0.06 0.035 295);
+  --panel:     oklch(0.14 0.055 295);
+  --line:      oklch(0.30 0.080 295);
+  --line-2:    oklch(0.42 0.110 295);
+  --magenta:   oklch(0.68 0.260 358);
+  --magenta-h: oklch(0.78 0.270 358);
+  --cyan:      oklch(0.85 0.180 215);
+  --cyan-h:    oklch(0.92 0.190 215);
+  --amber:     oklch(0.85 0.180 70);
+  --text:      oklch(0.95 0.020 295);
+  --text-m:    oklch(0.74 0.040 295);
+  --text-d:    oklch(0.58 0.060 295);
+
+  --serif:  "Instrument Serif", "Times New Roman", serif;
+  --display:"Major Mono Display", "JetBrains Mono", monospace;
+  --sans:   "Geist", system-ui, sans-serif;
+  --mono:   "JetBrains Mono", monospace;
+  --max-w: 1240px;
+  --pad-x: clamp(20px, 4vw, 56px);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:var(--bg-deep); color:var(--text); font-family:var(--sans); font-size:14.5px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+body{
+  min-height:100vh; overflow-x:hidden;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 92%, oklch(0.68 0.26 358 / 0.30), transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 0%,  oklch(0.85 0.18 215 / 0.10), transparent 70%),
+    linear-gradient(180deg, oklch(0.08 0.05 295) 0%, oklch(0.06 0.04 290) 60%, oklch(0.04 0.03 290) 100%);
+}
+/* scanlines, super subtle */
+body::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:200;
+  background: repeating-linear-gradient(to bottom, transparent 0, transparent 3px, oklch(0 0 0 / 0.06) 3px, oklch(0 0 0 / 0.06) 4px);
+}
+a{ color:var(--cyan); text-decoration:none; }
+a:hover{ color:var(--cyan-h); text-shadow:0 0 6px currentColor; }
+.shell{ max-width:var(--max-w); margin:0 auto; padding:0 var(--pad-x); position:relative; }
+
+/* ============================================================ TOP */
+.top{ position:sticky; top:0; z-index:50; background:oklch(0.06 0.035 295 / 0.78); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.top-inner{ display:grid; grid-template-columns:auto 1fr auto; gap:24px; height:56px; align-items:center; }
+.top-brand{ font-family:var(--display); font-size:14px; letter-spacing:0.1em; color:var(--text); display:flex; align-items:center; gap:10px; }
+.top-brand b{ color:var(--magenta); font-weight:normal; text-shadow:0 0 8px var(--magenta); }
+.top-nav{ justify-self:end; display:flex; gap:22px; font-family:var(--mono); font-size:12px; letter-spacing:0.06em; }
+.top-nav a{ color:var(--text-m); }
+.top-nav a:hover{ color:var(--magenta-h); text-shadow:0 0 6px currentColor; }
+.top-meta{ justify-self:center; font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.18em; text-transform:uppercase; }
+
+/* ============================================================ HERO */
+.hero{ position:relative; padding: clamp(80px, 11vw, 160px) 0 clamp(120px,14vw,200px); isolation:isolate; overflow:hidden; }
+
+/* sun — sits behind the floor grid, below the title */
+.hero::before{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  width: 440px; height:220px; bottom:-30px;
+  border-radius:50% 50% 0 0 / 100% 100% 0 0;
+  background: radial-gradient(ellipse 100% 200% at 50% 100%, oklch(0.95 0.20 70 / 1) 0%, oklch(0.85 0.22 50 / 0.95) 30%, oklch(0.68 0.26 358 / 0.5) 55%, oklch(0.68 0.26 358 / 0) 80%);
+  filter:blur(1px);
+  z-index:-2;
+}
+/* sun bands */
+.hero::after{
+  content:""; position:absolute; left:50%; transform:translateX(-50%);
+  width:440px; height:160px; bottom:50px;
+  background:
+    linear-gradient(to bottom,
+      transparent 0, transparent 60%,
+      oklch(0.06 0.035 295) 60%, oklch(0.06 0.035 295) 66%,
+      transparent 66%, transparent 78%,
+      oklch(0.06 0.035 295) 78%, oklch(0.06 0.035 295) 82%,
+      transparent 82%, transparent 92%,
+      oklch(0.06 0.035 295) 92%, oklch(0.06 0.035 295) 96%,
+      transparent 96%);
+  z-index:-1; pointer-events:none;
+  border-radius:50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* perspective grid floor */
+.floor{
+  position:absolute; left:50%; bottom:-60px; transform:translateX(-50%) perspective(700px) rotateX(70deg);
+  width:240vw; max-width:2600px; height:1000px;
+  background-image:
+    linear-gradient(to right, var(--magenta) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--cyan) 1px, transparent 1px);
+  background-size: 90px 90px;
+  filter: drop-shadow(0 0 4px oklch(0.68 0.26 358 / 0.4));
+  -webkit-mask-image: linear-gradient(to bottom, oklch(0 0 0 / 1) 30%, transparent 95%);
+          mask-image: linear-gradient(to bottom, oklch(0 0 0 / 1) 30%, transparent 95%);
+  z-index:-1; opacity:0.85;
+}
+
+.hero-grid{ display:grid; grid-template-columns: 1fr; gap:0; text-align:center; max-width:900px; margin:0 auto; }
+.eyebrow{ font-family:var(--display); font-size:12px; letter-spacing:0.4em; color:var(--cyan); text-shadow:0 0 8px var(--cyan); margin-bottom:24px; }
+
+.hero-portrait{ width:160px; height:160px; margin:0 auto 22px; position:relative; }
+.hero-portrait::before{ content:""; position:absolute; inset:-8px; border-radius:50%; background:conic-gradient(from 0deg, var(--magenta), var(--cyan), var(--amber), var(--magenta)); filter:blur(8px); opacity:0.6; }
+.hero-portrait img{ position:relative; width:100%; height:100%; border-radius:50%; object-fit:cover; border:2px solid var(--bg-deep); box-shadow:0 0 0 1px var(--magenta), 0 0 40px oklch(0.68 0.26 358 / 0.4); }
+
+h1.title{
+  font-family:var(--serif); font-weight:400; font-style:italic;
+  font-size: clamp(60px, 11vw, 130px); line-height:0.9; letter-spacing:-0.02em;
+  margin:0 0 24px;
+  color:var(--text);
+  text-shadow:
+    0 2px 18px oklch(0.06 0.035 295 / 0.85),
+    0 0 32px oklch(0.06 0.035 295 / 0.6),
+    0 0 60px oklch(0.85 0.18 215 / 0.15);
+}
+h1.title em{ font-style:italic; color:var(--magenta-h); font-family:var(--serif); text-shadow: 0 2px 18px oklch(0.06 0.035 295 / 0.85), 0 0 22px var(--magenta), 0 0 60px oklch(0.68 0.26 358 / 0.5); }
+
+.sub{ font-family:var(--display); font-size:13px; letter-spacing:0.32em; color:var(--cyan); margin-bottom:18px; text-shadow:0 0 8px var(--cyan); }
+.oneliner{ max-width:55ch; font-size:17px; color:var(--text-m); margin:0 auto 32px; }
+.cta-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn{ font-family:var(--mono); font-size:12px; letter-spacing:0.18em; padding:11px 22px; border:1px solid var(--magenta); color:var(--magenta-h); background:oklch(0.68 0.26 358 / 0.10); text-transform:uppercase; transition:all .15s; }
+.btn:hover{ background:oklch(0.68 0.26 358 / 0.25); box-shadow:0 0 14px oklch(0.68 0.26 358 / 0.6); text-shadow:0 0 6px currentColor; }
+.btn.alt{ border-color:var(--cyan); color:var(--cyan-h); background:oklch(0.85 0.18 215 / 0.08); }
+.btn.alt:hover{ background:oklch(0.85 0.18 215 / 0.20); box-shadow:0 0 14px oklch(0.85 0.18 215 / 0.5); }
+
+/* ============================================================ CASSETTE DIVIDER */
+.cassette{ display:flex; align-items:center; gap:18px; max-width:var(--max-w); margin:0 auto; padding: 24px var(--pad-x); border-top:1px dashed var(--line-2); border-bottom:1px dashed var(--line-2); }
+.cassette .side{ font-family:var(--display); font-size:18px; color:var(--magenta); letter-spacing:0.3em; text-shadow:0 0 8px currentColor; }
+.cassette .bar{ flex:1; height:2px; background:linear-gradient(to right, var(--magenta), var(--cyan)); box-shadow:0 0 8px oklch(0.68 0.26 358 / 0.6); }
+.cassette .label{ font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.18em; text-transform:uppercase; }
+
+/* ============================================================ SECTIONS */
+section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
+.tape-head{ display:flex; align-items:baseline; gap:22px; margin-bottom:36px; }
+.tape-num{ font-family:var(--display); font-size:24px; color:var(--magenta); text-shadow:0 0 10px var(--magenta); letter-spacing:0.06em; }
+.tape-num::after{ content:" //"; color:var(--text-d); }
+.tape-h{ font-family:var(--serif); font-style:italic; font-size:clamp(34px,4.5vw,54px); font-weight:400; line-height:1; margin:0; letter-spacing:-0.005em; }
+.tape-h em{ color:var(--cyan); font-style:italic; text-shadow:0 0 10px var(--cyan); }
+
+/* sobre */
+.about-grid{ display:grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr); gap:56px; }
+@media (max-width:820px){ .about-grid{ grid-template-columns:1fr; } }
+.about-prose p{ color:var(--text-m); font-size:16px; line-height:1.7; margin:0 0 1em; max-width:62ch; }
+.about-prose p:first-child{ font-family:var(--serif); font-style:italic; font-size:21px; line-height:1.45; color:var(--text); }
+.about-prose p strong{ color:var(--magenta-h); font-weight:500; text-shadow:0 0 8px oklch(0.68 0.26 358 / 0.3); }
+.side-panel{ border:1px solid var(--line-2); padding:22px 24px; background:linear-gradient(180deg, oklch(0.14 0.055 295 / 0.6), oklch(0.10 0.04 295 / 0.4)); position:relative; }
+.side-panel::before{ content:""; position:absolute; top:-1px; left:24px; right:24px; height:2px; background:linear-gradient(to right, var(--magenta), var(--cyan)); box-shadow:0 0 10px oklch(0.68 0.26 358 / 0.5); }
+.side-panel h3{ font-family:var(--display); font-size:11px; letter-spacing:0.3em; color:var(--cyan); margin:0 0 18px; }
+.side-panel dl{ margin:0; display:grid; grid-template-columns:80px 1fr; gap:10px 18px; font-size:13.5px; }
+.side-panel dt{ font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.12em; text-transform:uppercase; }
+.side-panel dd{ margin:0; color:var(--text); }
+.side-panel dd b{ color:var(--magenta-h); font-weight:500; }
+
+/* areas */
+.areas{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px 12px; }
+.areas li{
+  font-family:var(--mono); font-size:12px; letter-spacing:0.04em;
+  padding:7px 16px; cursor:pointer; transition:all .15s;
+  color:var(--text); background: oklch(0.14 0.05 295 / 0.6);
+  border:1px solid var(--line-2); border-radius:999px;
+}
+.areas li:hover{ border-color:var(--magenta); color:var(--magenta-h); box-shadow:0 0 14px oklch(0.68 0.26 358 / 0.4); }
+.areas li.hot{ border-color:var(--cyan); color:var(--cyan-h); background:oklch(0.85 0.18 215 / 0.10); }
+
+/* roles — neon cards */
+.roles{ display:grid; grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:20px; }
+.role{
+  position:relative; padding:24px;
+  background: linear-gradient(160deg, oklch(0.14 0.055 295 / 0.7), oklch(0.10 0.04 295 / 0.5));
+  border:1px solid var(--line-2);
+  transition:all .2s ease-out;
+}
+.role:hover{ border-color:var(--magenta); transform:translateY(-2px); box-shadow:0 16px 40px oklch(0 0 0 / 0.4), 0 0 0 1px var(--magenta) inset, 0 0 24px oklch(0.68 0.26 358 / 0.35); }
+.role h3{ font-family:var(--serif); font-style:italic; font-size:24px; font-weight:400; margin:0 0 4px; color:var(--text); }
+.role .ttl{ font-family:var(--mono); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--cyan); margin-bottom:14px; }
+.role p{ font-size:14px; color:var(--text-m); margin:0 0 14px; line-height:1.6; }
+.role .when{ font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.06em; padding-top:12px; border-top:1px dashed var(--line); display:flex; justify-content:space-between; }
+.role .when b{ color:var(--magenta-h); font-weight:500; }
+
+/* publications */
+.pubs{ list-style:none; padding:0; margin:0; }
+.pubs li{ display:grid; grid-template-columns: 100px 1fr; gap:24px; padding:20px 0; border-bottom:1px solid var(--line); }
+.pubs .yr{ font-family:var(--serif); font-style:italic; font-size:48px; color:var(--magenta-h); line-height:1; text-shadow:0 0 18px oklch(0.68 0.26 358 / 0.45); }
+.pubs .ti{ font-size:16px; color:var(--text); line-height:1.4; }
+.pubs .ti a{ color:var(--text); border-bottom:1px solid var(--line-2); }
+.pubs .ti a:hover{ color:var(--cyan-h); border-color:var(--cyan); }
+.pubs .au{ display:block; font-family:var(--mono); font-size:11.5px; color:var(--text-d); letter-spacing:0.04em; margin-top:8px; }
+.pubs .tag{ display:inline-block; font-family:var(--mono); font-size:10px; padding:2px 8px; margin-right:8px; border:1px solid var(--cyan); color:var(--cyan); letter-spacing:0.1em; vertical-align:1px; }
+.pubs .tag.first{ border-color:var(--magenta); color:var(--magenta-h); }
+
+/* repos */
+.repos{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:13px; }
+.repos th, .repos td{ text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); }
+.repos th{ color:var(--text-d); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; }
+.repos tr:hover td{ background:oklch(0.18 0.06 295 / 0.4); }
+.repos td.lang{ color:var(--cyan); }
+.repos td.num{ color:var(--magenta-h); text-align:right; }
+
+/* footer */
+.foot{ padding:32px 0 60px; font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.18em; text-transform:uppercase; }
+.foot-row{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; align-items:center; }
+.foot a{ color:var(--cyan); }
+</style>
+</head>
+<body>
+
+<header class="top"><div class="shell top-inner">
+  <div class="top-brand">ATZINGEN<b>.</b>SYNTH</div>
+  <div class="top-meta">SIDE A · EST. 2007</div>
+  <nav class="top-nav"><a href="#sobre">Sobre</a><a href="#areas">Áreas</a><a href="#papeis">Atuação</a><a href="#pubs">Pubs</a><a href="#repo">Repo</a></nav>
+</div></header>
+
+<main>
+
+<section class="hero">
+  <div class="floor" aria-hidden="true"></div>
+  <div class="shell">
+    <div class="hero-grid">
+      <div class="eyebrow">// PROFESSOR · PESQUISADOR · ENGENHEIRO</div>
+      <div class="hero-portrait"><img src="/assets/rosto.jpeg" alt="Gustavo von Atzingen"></div>
+      <h1 class="title">Gustavo <em>von</em><br>Atzingen</h1>
+      <div class="sub">COMPUTER VISION · EEG · ATUARIAL</div>
+      <p class="oneliner">Software de pesquisa e governo que precisa rodar no mundo real — ser mantido, escalar, e gerar valor mensurável.</p>
+      <div class="cta-row">
+        <a class="btn" href="#papeis">VER ATUAÇÃO</a>
+        <a class="btn alt" href="#pubs">PUBLICAÇÕES</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cassette shell">
+  <span class="side">A</span>
+  <span class="label">SOBRE / ÁREAS / ATUAÇÃO</span>
+  <span class="bar"></span>
+  <span class="label">PUBS / REPOS / CONTATO</span>
+  <span class="side">B</span>
+</div>
+
+<!-- SOBRE -->
+<section class="tape" id="sobre">
+  <div class="shell">
+    <div class="tape-head"><span class="tape-num">01</span><h2 class="tape-h"><em>Sobre</em> mim</h2></div>
+    <div class="about-grid">
+      <div class="about-prose">
+        <p>Físico de formação, engenheiro de alimentos por treino, e hoje muito mais.</p>
+        <p>Bacharel em Física pela USP/IFSC (2007), com Mestrado e Doutorado em Engenharia de Alimentos pela FZEA-USP (2013/2017), trabalhando com <strong>instrumentação eletrônica e simulação numérica de processos térmicos</strong>. Professor no IFSP Piracicaba desde então.</p>
+        <p>Como pesquisador, trabalho com <strong>visão computacional, EEG, machine learning aplicado e instrumentação embarcada</strong>. No CEPAD-IFSP coordeno plataformas digitais para iniciativas governamentais — Plataforma Nilo Peçanha, dashboards MDS, agroecologia MMA.</p>
+        <p>Em paralelo, fundei a <strong>Quickium</strong> e sou sócio da <strong>Inteligência Atuarial</strong>, onde construímos motores de cálculo e sistemas de gestão atuarial para RPPS.</p>
+      </div>
+      <aside class="side-panel">
+        <h3>// CREDENTIALS</h3>
+        <dl>
+          <dt>PhD</dt><dd>Eng. Alimentos · <b>FZEA-USP 2017</b></dd>
+          <dt>MSc</dt><dd>Eng. Alimentos · <b>FZEA-USP 2013</b></dd>
+          <dt>BSc</dt><dd>Física · <b>IFSC-USP 2007</b></dd>
+          <dt>Base</dt><dd>Piracicaba / SP</dd>
+          <dt>Lattes</dt><dd><a href="#">5173282107514295</a></dd>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="tape" id="areas">
+  <div class="shell">
+    <div class="tape-head"><span class="tape-num">02</span><h2 class="tape-h">Áreas de <em>pesquisa</em></h2></div>
+    <ul class="areas">
+      <li>Machine Learning</li><li class="hot">Computer Vision</li><li>CV Embarcada</li>
+      <li class="hot">EEG / Sinais</li><li>Atuarial / RPPS</li><li>Power BI / Data Eng</li>
+      <li>AI Dev Tools</li><li>Government Data</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ATUAÇÃO -->
+<section class="tape" id="papeis">
+  <div class="shell">
+    <div class="tape-head"><span class="tape-num">03</span><h2 class="tape-h"><em>Atuação</em></h2></div>
+    <div class="roles">
+      <article class="role"><h3>IFSP Piracicaba</h3><div class="ttl">Professor</div>
+        <p>Inteligência Artificial, Visão Computacional, Visão Computacional Embarcada. Material aberto: FIC (28⭐), webinar CV Embarcada (10⭐).</p>
+        <div class="when"><span>2014 → present</span><b>12y</b></div></article>
+      <article class="role"><h3>CEPAD-IFSP</h3><div class="ttl">Pesquisador</div>
+        <p>Centro de Pesquisa em Análise de Dados do IFSP. Plataformas digitais e analytics para iniciativas governamentais com MDS, MMA, FNDE.</p>
+        <div class="when"><span>2018 → present</span><b>8y</b></div></article>
+      <article class="role"><h3>Plataforma Nilo Peçanha</h3><div class="ttl">Cientista de Dados</div>
+        <p>Plataforma federal oficial de dados da rede CET/IF (SETEC/MEC). Engenharia de dados, dashboards, extração.</p>
+        <div class="when"><span>2023 → present</span><b>3y</b></div></article>
+      <article class="role"><h3>Quickium</h3><div class="ttl">Founder · CTO</div>
+        <p>Tecnologia e soluções customizadas. Motor próprio de visão computacional embarcada e infra de deploy.</p>
+        <div class="when"><span>fundada</span><b>—</b></div></article>
+      <article class="role"><h3>Inteligência Atuarial</h3><div class="ttl">Sócio</div>
+        <p>Motores de cálculo e sistemas de gestão atuarial para Regimes Próprios de Previdência Social.</p>
+        <div class="when"><span>sócio</span><b>—</b></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICAÇÕES -->
+<section class="tape" id="pubs">
+  <div class="shell">
+    <div class="tape-head"><span class="tape-num">04</span><h2 class="tape-h"><em>Publicações</em> selecionadas</h2></div>
+    <ol class="pubs">
+      <li><span class="yr">2024</span><div><span class="tag first">FIRST</span><a href="#">EEG-based cognitive task classification with CNN ensembles</a>
+        <span class="au">Atzingen G.V., Silva R., Souza B. — IEEE Access</span></div></li>
+      <li><span class="yr">2023</span><div><span class="tag">CO-AUT</span><a href="#">Embedded computer vision on RP2040 for industrial inspection</a>
+        <span class="au">Silva R., Atzingen G.V. — JCMSE</span></div></li>
+      <li><span class="yr">2022</span><div><span class="tag first">FIRST</span><a href="#">Actuarial projection engines for Brazilian public pension funds</a>
+        <span class="au">Atzingen G.V., Almeida P. — RBPS</span></div></li>
+      <li><span class="yr">2020</span><div><span class="tag">CO-AUT</span><a href="#">Thermal process simulation in food extrusion</a>
+        <span class="au">Costa M., Atzingen G.V. — J. Food Engineering</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section class="tape" id="repo">
+  <div class="shell">
+    <div class="tape-head"><span class="tape-num">05</span><h2 class="tape-h"><em>Open</em> source</h2></div>
+    <table class="repos">
+      <thead><tr><th>repo</th><th>org</th><th>lang</th><th>stars</th><th>updated</th></tr></thead>
+      <tbody>
+        <tr><td>IA-FIC-IFSP</td><td>Atzingen</td><td class="lang">Jupyter</td><td class="num">28</td><td>3d</td></tr>
+        <tr><td>Webinar-Visao-Computacional-Embarcada</td><td>Atzingen</td><td class="lang">Python</td><td class="num">10</td><td>2w</td></tr>
+        <tr><td>alimentacidades</td><td>CEPAD-IFSP</td><td class="lang">Python</td><td class="num">6</td><td>1d</td></tr>
+        <tr><td>pnp-web</td><td>Rede-DSBR</td><td class="lang">TypeScript</td><td class="num">4</td><td>4d</td></tr>
+        <tr><td>motor-ia</td><td>inteligenciaatuarial</td><td class="lang">Python</td><td class="num">2</td><td>5d</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="foot"><div class="shell foot-row">
+  <span>© 2026 · ATZINGEN<b style="color:var(--magenta)">.</b>SYNTH · MOCKUP 04</span>
+  <a href="../">↩ todos os mockups</a>
+</div></footer>
+
+</main>
+</body>
+</html>
