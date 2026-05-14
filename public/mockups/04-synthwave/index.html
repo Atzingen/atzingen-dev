@@ -197,11 +197,15 @@ section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
 
 /* repos */
 .repos{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:13px; }
-.repos th, .repos td{ text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); }
-.repos th{ color:var(--text-d); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; }
+.repos th, .repos td{ text-align:left; padding:14px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+.repos th{ color:var(--text-d); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; vertical-align:bottom; padding:10px 14px; }
 .repos tr:hover td{ background:oklch(0.18 0.06 295 / 0.4); }
-.repos td.lang{ color:var(--cyan); }
-.repos td.num{ color:var(--magenta-h); text-align:right; }
+.repos td.lang{ color:var(--cyan); white-space:nowrap; }
+.repos td.num{ color:var(--magenta-h); text-align:right; white-space:nowrap; }
+.repos td.up{ white-space:nowrap; color:var(--text-d); font-size:12px; }
+.repos .repo-name{ color:var(--text); font-weight:500; }
+.repos .repo-name:hover{ color:var(--cyan-h); text-shadow:0 0 6px currentColor; }
+.repos .desc{ display:block; font-family:var(--mono); font-size:11.5px; color:var(--text-d); line-height:1.45; margin-top:5px; max-width:62ch; }
 
 /* footer */
 .foot{ padding:32px 0 60px; font-family:var(--mono); font-size:11px; color:var(--text-d); letter-spacing:0.18em; text-transform:uppercase; }
@@ -275,7 +279,7 @@ section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
     <div class="tape-head"><span class="tape-num">02</span><h2 class="tape-h">Áreas de <em>pesquisa</em></h2></div>
     <ul class="areas">
       <li>Machine Learning</li><li class="hot">Computer Vision</li><li>CV Embarcada</li>
-      <li class="hot">EEG / Sinais</li><li>Atuarial / RPPS</li><li>Power BI / Data Eng</li>
+      <li class="hot">EEG / Sinais</li><li>Power BI / Data Eng</li>
       <li>AI Dev Tools</li><li>Government Data</li>
     </ul>
   </div>
@@ -297,7 +301,7 @@ section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
         <div class="when"><span>2023 → present</span><b>3y</b></div></article>
       <article class="role"><h3>Quickium</h3><div class="ttl">Co-fundador · CTO</div>
         <p>Empresa de tecnologia voltada a soluções customizadas: motor próprio de visão computacional embarcada, pipelines de IA aplicada e plataformas de dados para clientes industriais e órgãos públicos.</p>
-        <div class="when"><span>2019 → present</span><b>7y</b></div></article>
+        <div class="when"><span>atual</span><b>—</b></div></article>
     </div>
   </div>
 </section>
@@ -307,15 +311,18 @@ section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
   <div class="shell">
     <div class="tape-head"><span class="tape-num">04</span><h2 class="tape-h"><em>Publicações</em> selecionadas</h2></div>
     <ol class="pubs">
-      <li><span class="yr">2024</span><div><span class="tag first">FIRST</span><a href="#">EEG-based cognitive task classification with CNN ensembles</a>
-        <span class="au">Atzingen G.V., Silva R., Souza B. — IEEE Access</span></div></li>
-      <li><span class="yr">2023</span><div><span class="tag">CO-AUT</span><a href="#">Embedded computer vision on RP2040 for industrial inspection</a>
-        <span class="au">Silva R., Atzingen G.V. — JCMSE</span></div></li>
-      <li><span class="yr">2022</span><div><span class="tag first">FIRST</span><a href="#">Actuarial projection engines for Brazilian public pension funds</a>
-        <span class="au">Atzingen G.V., Almeida P. — RBPS</span></div></li>
-      <li><span class="yr">2020</span><div><span class="tag">CO-AUT</span><a href="#">Thermal process simulation in food extrusion</a>
-        <span class="au">Costa M., Atzingen G.V. — J. Food Engineering</span></div></li>
+      <li><span class="yr">2024</span><div><span class="tag">CO-AUT</span>Detection of news written by the ChatGPT through authorship attribution performed by a bidirectional LSTM model
+        <span class="au">Iaquinta A.F. · Atzingen G.V. — Caderno Pedagógico v.21, e9236</span></div></li>
+      <li><span class="yr">2023</span><div><span class="tag">CO-AUT</span><a href="https://doi.org/10.3390/app132010722" target="_blank" rel="noopener">Improving Behavior Monitoring of Free-Moving Dairy Cows Using Noninvasive Wireless EEG Approach and Digital Signal Processing Techniques</a>
+        <span class="au">Silva A.C.S. · Arce A.I.C. · Arteaga H. · Sarnighausen V.C.R. · Costa E.J.X. · Atzingen G.V. — Applied Sciences v.13, p.10722</span></div></li>
+      <li><span class="yr">2022</span><div><span class="tag first">FIRST</span><a href="https://doi.org/10.3389/fnut.2022.901333" target="_blank" rel="noopener">The convolutional neural network as a tool to classify electroencephalography data resulting from the consumption of juice sweetened with caloric or non-caloric sweeteners</a>
+        <span class="au">Atzingen G.V. · Arteaga H. · Silva A.R. · Ortega N.F. · Costa E.J.X. · Silva A.C.S. — Frontiers in Nutrition v.9, p.1-14</span></div></li>
+      <li><span class="yr">2021</span><div><span class="tag">CO-AUT</span>EEG Multipurpose Eye Blink Detector using convolutional neural network
+        <span class="au">Iaquinta A.F. · Silva A.C.S. · Ferraz Jr A. · Toledo J.M. · Atzingen G.V. — Research, Society and Development v.10, e335101522712</span></div></li>
+      <li><span class="yr">2020</span><div><span class="tag">CO-AUT</span>Classificador de trajetos para robôs de corrida seguidores de linha utilizando deep learning
+        <span class="au">Ferraz A.J. · Pereira G.M. · Belgamo A. · Atzingen G.V. — Universitas (Mogi-Mirim) v.14, p.71</span></div></li>
     </ol>
+    <p style="margin-top:26px; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; color:var(--text-d); text-transform:uppercase;">→ <a href="http://lattes.cnpq.br/5173282107514295" target="_blank" rel="noopener" style="color:var(--magenta-h);">currículo Lattes completo</a></p>
   </div>
 </section>
 
@@ -326,13 +333,21 @@ section.tape{ padding: clamp(48px,6vw,80px) 0; position:relative; }
     <table class="repos">
       <thead><tr><th>repo</th><th>org</th><th>lang</th><th>stars</th><th>updated</th></tr></thead>
       <tbody>
-        <tr><td>IA-FIC-IFSP</td><td>Atzingen</td><td class="lang">Jupyter</td><td class="num">28</td><td>3d</td></tr>
-        <tr><td>Webinar-Visao-Computacional-Embarcada</td><td>Atzingen</td><td class="lang">Python</td><td class="num">10</td><td>2w</td></tr>
-        <tr><td>alimentacidades</td><td>CEPAD-IFSP</td><td class="lang">Python</td><td class="num">6</td><td>1d</td></tr>
-        <tr><td>pnp-web</td><td>Rede-DSBR</td><td class="lang">TypeScript</td><td class="num">4</td><td>4d</td></tr>
-        <tr><td>motor-ia</td><td>inteligenciaatuarial</td><td class="lang">Python</td><td class="num">2</td><td>5d</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/lichess-puzzles" target="_blank" rel="noopener">lichess-puzzles</a><span class="desc">Treinador de puzzles do Lichess auto-hospedado com filtros mais ricos (contagem de peças, número do lance) que o lichess.org.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">0</td><td class="up">2w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Rede-DSBR/CecateNE" target="_blank" rel="noopener">CecateNE</a><span class="desc">Planejamento do Cecate FNDE — Região Nordeste.</span></td><td>Rede-DSBR</td><td class="lang">—</td><td class="num">1</td><td class="up">2w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/hey-jarvis" target="_blank" rel="noopener">hey-jarvis</a><span class="desc">Lançador de projetos por voz para Linux/Hyprland — abre layouts, conversa com Claude ou suspende.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">13</td><td class="up">3w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/tmdl-parser" target="_blank" rel="noopener">tmdl-parser</a><span class="desc">Biblioteca Python que faz parse de arquivos TMDL (Tabular Model Definition Language) do Power BI em estruturas tipadas.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">7</td><td class="up">3w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/claude-monitor" target="_blank" rel="noopener">claude-monitor</a><span class="desc">Dashboard TUI para acompanhar e interagir com instâncias de Claude Code rodando localmente.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">0</td><td class="up">4w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/crescimento_plantas" target="_blank" rel="noopener">crescimento_plantas</a><span class="desc">Análise de crescimento de alface por segmentação de imagens — comparação entre HSV clássico e SAM3.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">0</td><td class="up">5w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/bjj-detector" target="_blank" rel="noopener">bjj-detector</a><span class="desc">Detecção de posições de Brazilian Jiu-Jitsu usando YOLO11.</span></td><td>Atzingen</td><td class="lang">Python</td><td class="num">0</td><td class="up">5w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/Awall" target="_blank" rel="noopener">Awall</a><span class="desc">LLM Firewall e API Gateway.</span></td><td>Atzingen</td><td class="lang">Svelte</td><td class="num">0</td><td class="up">5w</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Rede-DSBR/referencial" target="_blank" rel="noopener">referencial</a><span class="desc">Conteúdo do referencial metodológico da Plataforma Nilo Peçanha e hospedagem como página web.</span></td><td>Rede-DSBR</td><td class="lang">Python</td><td class="num">0</td><td class="up">4mo</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/IA-FIC-IFSP" target="_blank" rel="noopener">IA-FIC-IFSP</a><span class="desc">Material do curso FIC do IFSP Piracicaba — fundamentos de Inteligência Artificial em notebooks.</span></td><td>Atzingen</td><td class="lang">Jupyter</td><td class="num">28</td><td class="up">5mo</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/EEG_Sweetners" target="_blank" rel="noopener">EEG_Sweetners</a><span class="desc">Dataset e modelos para comparar o efeito de adoçantes vs açúcar em sinais de EEG. Base do paper 2022 em Frontiers in Nutrition.</span></td><td>Atzingen</td><td class="lang">Jupyter</td><td class="num">0</td><td class="up">1y</td></tr>
+        <tr><td><a class="repo-name" href="https://github.com/Atzingen/Webinar-Vis-o-computacional-Embarcada" target="_blank" rel="noopener">Webinar-Visão-Computacional-Embarcada</a><span class="desc">Notebooks e slides do webinar sobre visão computacional rodando em hardware embarcado.</span></td><td>Atzingen</td><td class="lang">Jupyter</td><td class="num">10</td><td class="up">2y</td></tr>
       </tbody>
     </table>
+    <p style="margin-top:18px; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; color:var(--text-d); text-transform:uppercase;">→ <a href="https://github.com/Atzingen" target="_blank" rel="noopener" style="color:var(--magenta-h);">73 repositórios totais no GitHub</a></p>
   </div>
 </section>
 
