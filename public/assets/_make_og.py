@@ -91,12 +91,12 @@ def main() -> None:
     draw.text((x, 340), "Professor · Pesquisador · Engenheiro", fill=DIM, font=sans)
     draw.text(
         (x, 390),
-        "Computer vision, EEG, atuarial e sistemas para educação e governo.",
+        "IA aplicada e ciência de dados — visão computacional, deep learning, EEG e plataformas de dados.",
         fill=FG,
         font=sans_small,
     )
 
-    roles = "IFSP · CEPAD-IFSP · Plataforma Nilo Peçanha · Quickium · Inteligência Atuarial"
+    roles = "IFSP · CEPAD-IFSP · Plataforma Nilo Peçanha · Quickium"
     draw.text((x, 500), roles, fill=ACC, font=mono)
     draw.text((x, 540), "atzingen.dev", fill=DIM, font=mono)
 
