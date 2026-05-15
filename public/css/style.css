@@ -518,83 +518,110 @@ section:first-of-type { border-top: 0; }
 }
 
 /* ============================================================
-   Sobre — editorial prose with drop cap and pull-quote
+   Sobre — uniform prose, justified, generous; expanded highlights
    ============================================================ */
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 80px);
   align-items: start;
 }
 .about-prose p {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.78;
   color: var(--text);
-  max-width: 62ch;
+  max-width: 64ch;
+  margin: 0 0 1.45em;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
 }
-.about-prose p:first-child {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(22px, 2.2vw, 28px);
-  line-height: 1.42;
-  color: var(--text);
-  margin-bottom: 1.2em;
-  font-variation-settings: "SOFT" 80, "WONK" 1, "opsz" 36;
-}
-.about-prose p:first-child::first-letter {
-  font-family: var(--serif);
-  font-size: 4.4em;
-  font-style: normal;
-  color: var(--accent);
-  float: left;
-  margin: 0.08em 0.10em -0.20em -0.04em;
-  line-height: 0.78;
-  font-weight: 380;
-  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
-}
+.about-prose p:last-child { margin-bottom: 0; }
 .about-prose p strong {
   background: linear-gradient(transparent 62%, var(--ochre-soft) 62%, var(--ochre-soft) 88%, transparent 88%);
   font-weight: 500;
+  padding: 0 2px;
 }
 
 .about-side h3.eyebrow {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 11px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-side h3.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule-mid);
 }
 .highlights {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--rule-mid);
+  border-top: 1.5px solid var(--rule-mid);
 }
 .highlights li {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 14px;
-  padding: 13px 0;
+  grid-template-columns: 110px 1fr;
+  gap: 18px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--rule);
-  font-size: 13.5px;
+  font-size: 15px;
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.55;
+  align-items: baseline;
 }
 .highlights .key {
   color: var(--text-dim);
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.10em;
+  font-size: 11px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding-top: 2px;
+  padding-top: 3px;
+  align-self: start;
 }
-.highlights a { color: var(--accent); border-bottom: 1px solid var(--accent-line); }
-.highlights a:hover { border-color: var(--accent); }
+.highlights .hl-value {
+  font-size: 15px;
+  color: var(--text);
+}
+.highlights .hl-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.highlights .hl-edu-row {
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.highlights .hl-edu-row b {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  font-weight: 500;
+  margin-right: 4px;
+}
+.highlights a.hl-value {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-line);
+  padding-bottom: 1px;
+}
+.highlights a.hl-value:hover {
+  color: var(--accent-h);
+  border-color: var(--accent);
+}
 
 @media (max-width: 760px) {
   .about-grid { grid-template-columns: 1fr; }
+  .about-prose p { text-align: left; hyphens: none; }
 }
 
 /* ============================================================
@@ -671,126 +698,137 @@ section:first-of-type { border-top: 0; }
 }
 
 /* ============================================================
-   Atuação — 2-column list (org on left, role + desc on right)
+   Atuação — 4-column card grid (vertical cards side-by-side)
    ============================================================ */
 
 .roles-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
 }
 .role-card {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 6px 44px;
-  padding: 36px 0;
-  border-top: 1px solid var(--rule);
-  background: transparent;
-  border-radius: 0;
-  transition: background-color 120ms ease;
-}
-.role-card:first-child { border-top: 1.5px solid var(--rule-mid); }
-.role-card:hover { background: var(--bg-tint); }
-.role-card header {
-  grid-column: 1;
-  grid-row: 1 / span 5;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  padding: 22px 20px 20px;
+  background: var(--bg-elev);
+  border: 1px solid var(--rule-mid);
+  border-radius: 10px;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
   position: relative;
+  overflow: hidden;
 }
-.role-card header::before {
+.role-card::before {
   content: "";
   position: absolute;
-  left: -16px; top: 8px;
-  width: 6px; height: 6px;
-  border-radius: 50%;
+  top: 0; left: 0; right: 0;
+  height: 3px;
   background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.role-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px oklch(0.20 0.02 250 / 0.08);
+}
+.role-card:hover::before { opacity: 1; }
+
+.role-card header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 2px;
 }
 .role-card header h3 {
   font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 380;
-  line-height: 1.0;
-  letter-spacing: -0.024em;
-  font-variation-settings: "SOFT" 70, "WONK" 1, "opsz" 36;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.020em;
+  font-variation-settings: "SOFT" 70, "WONK" 1, "opsz" 24;
+  color: var(--text);
 }
-.role-period {
+.role-card .role-period {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 10px;
   color: var(--text-dim);
   letter-spacing: 0.10em;
   text-transform: uppercase;
-}
-.role-card > .role-title,
-.role-card > p,
-.role-card > .chip-row,
-.role-card > .role-link {
-  grid-column: 2;
+  white-space: nowrap;
 }
 .role-card > .role-title {
   display: inline-block;
-  margin: 0 0 12px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--accent);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 500;
+  margin: 0 0 4px;
+  padding: 4px 9px;
+  background: var(--accent-soft);
+  border-radius: 4px;
+  align-self: flex-start;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .role-card > p {
-  font-size: 15.5px;
-  line-height: 1.65;
+  font-size: 13.5px;
+  line-height: 1.6;
   color: var(--text);
-  margin: 0 0 14px;
-  max-width: 60ch;
+  margin: 0;
+  max-width: none;
 }
-.chip-row {
+.role-card .chip-row {
   list-style: none;
-  margin: 4px 0 12px;
+  margin: 6px 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
-.chip {
+.role-card .chip {
   display: inline-block;
-  background: var(--bg-elev);
+  background: var(--bg);
   color: var(--text-mid);
   border: 1px solid var(--rule-mid);
   border-radius: 4px;
-  padding: 3px 9px;
+  padding: 2px 7px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
 }
-.chip:hover { color: var(--accent); border-color: var(--accent); }
-.chip-private {
+.role-card .chip:hover { color: var(--accent); border-color: var(--accent); }
+.role-card .chip-private {
   color: var(--text-dim);
   border-style: dashed;
   cursor: default;
 }
-.chip-private:hover { color: var(--text-dim); border-color: var(--rule-mid); }
-.role-link {
-  display: inline-block;
-  margin-top: 8px;
+.role-card .chip-private:hover { color: var(--text-dim); border-color: var(--rule-mid); }
+.role-card .role-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 12px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent);
-  border-bottom: 1px solid var(--accent-line);
-  padding-bottom: 1px;
-  justify-self: start;
+  border-bottom: 0;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
 }
-.role-link:hover { color: var(--accent-h); border-color: var(--accent); }
+.role-card .role-link::after { content: "→"; transition: transform 120ms ease; }
+.role-card .role-link:hover { color: var(--accent-h); }
+.role-card .role-link:hover::after { transform: translateX(2px); }
 
-@media (max-width: 760px) {
-  .role-card { grid-template-columns: 1fr; gap: 6px; padding-left: 16px; }
-  .role-card header { grid-column: 1; grid-row: auto; margin-bottom: 8px; }
-  .role-card header::before { left: -16px; }
-  .role-card > .role-title,
-  .role-card > p,
-  .role-card > .chip-row,
-  .role-card > .role-link { grid-column: 1; }
+@media (max-width: 1020px) {
+  .roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .roles-grid { grid-template-columns: 1fr; }
 }
 
 /* ============================================================

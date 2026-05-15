@@ -98,28 +98,39 @@
     const side = $("[data-bind='profile.highlights']");
     side.innerHTML = "";
     side.appendChild(el("h3", { class: "eyebrow" }, t("section.about.highlights")));
+    const quickium = p.roles.find((r) => r.id === "quickium");
+    const eduItems = p.education.map((e) =>
+      el("div", { class: "hl-edu-row" }, [
+        el("b", {}, e.level),
+        el("span", {}, ` ${e.field} · ${e.inst} (${e.year})`),
+      ]),
+    );
     const hl = el("ul", { class: "highlights" }, [
       el("li", {}, [
         el("span", { class: "key" }, lang() === "pt" ? "Formação" : "Education"),
-        el("span", {}, p.education.map((e) => `${e.level} ${e.inst} (${e.year})`).join(" · ")),
+        el("div", { class: "hl-value hl-stack" }, eduItems),
       ]),
       el("li", {}, [
         el("span", { class: "key" }, lang() === "pt" ? "Base" : "Based in"),
-        el("span", {}, p.base),
+        el("span", { class: "hl-value" }, p.base + " · Brasil"),
       ]),
-      el("li", {}, [
-        el("span", { class: "key" }, lang() === "pt" ? "Áreas" : "Areas"),
-        el("span", {}, p.areas.map((a) => pick(a.label)).join(" · ")),
-      ]),
+      quickium ? el("li", {}, [
+        el("span", { class: "key" }, "Quickium"),
+        el("a", { class: "hl-value", href: quickium.url, target: "_blank", rel: "noopener" }, "quickium.com"),
+      ]) : null,
       el("li", {}, [
         el("span", { class: "key" }, "Lattes"),
-        el("a", { href: p.contact.lattes, target: "_blank", rel: "noopener" }, "lattes.cnpq.br"),
+        el("a", { class: "hl-value", href: p.contact.lattes, target: "_blank", rel: "noopener" }, "lattes.cnpq.br/5173282107514295"),
       ]),
       el("li", {}, [
         el("span", { class: "key" }, "LinkedIn"),
-        el("a", { href: p.contact.linkedin, target: "_blank", rel: "noopener" }, "/in/gustavoatzingen"),
+        el("a", { class: "hl-value", href: p.contact.linkedin, target: "_blank", rel: "noopener" }, "/in/gustavoatzingen"),
       ]),
-    ]);
+      el("li", {}, [
+        el("span", { class: "key" }, "GitHub"),
+        el("a", { class: "hl-value", href: p.contact.github[0].url, target: "_blank", rel: "noopener" }, "@" + p.contact.github[0].label),
+      ]),
+    ].filter(Boolean));
     side.appendChild(hl);
   }
 
