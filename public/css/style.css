@@ -273,7 +273,7 @@ section {
    ============================================================ */
 
 .hero {
-  padding: clamp(48px, 6vw, 80px) 0 clamp(24px, 3vw, 40px);
+  padding: clamp(40px, 5vw, 72px) 0 clamp(12px, 2vw, 24px);
   border-top: 0;
   position: relative;
 }
@@ -421,20 +421,6 @@ section {
   box-shadow: 0 6px 16px oklch(0.45 0.105 240 / 0.18);
 }
 
-.scroll-hint {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: clamp(28px, 4vw, 48px) 0 0;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-.scroll-hint:hover { color: var(--accent); }
-.scroll-hint svg { display: block; }
-
 @media (max-width: 760px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -553,76 +539,43 @@ section {
 }
 
 /* ============================================================
-   Áreas — pills with subtle thematic tints
+   Áreas — definition list: title + description paragraph
    ============================================================ */
 
-.section-helper {
-  color: var(--text-mid);
-  font-size: 14px;
-  margin: -14px 0 24px;
-  max-width: 60ch;
-  font-style: italic;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 18;
-}
-.area-pills {
-  list-style: none;
+.areas-list {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px 10px;
+  display: grid;
+  grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+  gap: clamp(20px, 2.5vw, 32px) clamp(28px, 4vw, 56px);
+  align-items: baseline;
 }
-.area-pill {
-  background: var(--bg-elev);
-  color: var(--text);
-  border: 1px solid var(--rule-mid);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 450;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-  transition: all 120ms ease;
-}
-.area-pill:hover {
-  border-color: var(--accent);
+.areas-list .area-name {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 32;
   color: var(--accent);
-  background: var(--accent-soft);
+  margin: 0;
+  padding-top: 2px;
 }
-.area-pill.is-active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
+.areas-list .area-desc {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-mid);
+  margin: 0;
+  max-width: 64ch;
 }
-/* Subtle group tints — research areas vs tooling vs gov */
-.area-pill[data-area="ml"],
-.area-pill[data-area="cv"],
-.area-pill[data-area="cv-embed"],
-.area-pill[data-area="eeg"] {
-  border-color: oklch(0.42 0.095 200 / 0.45);
-}
-.area-pill[data-area="powerbi"],
-.area-pill[data-area="ai-tools"] {
-  border-color: oklch(0.46 0.110 350 / 0.50);
-  color: var(--plum);
-}
-.area-pill[data-area="powerbi"]:hover,
-.area-pill[data-area="ai-tools"]:hover {
-  background: var(--plum-soft);
-  border-color: var(--plum);
-  color: var(--plum);
-}
-.area-pill[data-area="gov"] {
-  border-color: oklch(0.62 0.155 65 / 0.50);
-  color: var(--ochre);
-}
-.area-pill[data-area="gov"]:hover {
-  background: var(--ochre-soft);
-  border-color: var(--ochre);
-  color: var(--ochre);
+
+@media (max-width: 760px) {
+  .areas-list {
+    grid-template-columns: 1fr;
+    gap: 6px clamp(28px, 4vw, 56px);
+  }
+  .areas-list .area-name { padding-top: 18px; }
+  .areas-list .area-name:first-child { padding-top: 0; }
 }
 
 /* ============================================================
@@ -791,7 +744,22 @@ section {
   border-color: var(--accent-line);
 }
 
-/* unified project list */
+/* featured: 2-column grid above the compact list */
+.proj-featured-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 clamp(20px, 3vw, 40px);
+  border-top: 1.5px solid var(--rule-mid);
+}
+/* with 5 featured, the 5th spans both columns to avoid an orphan cell */
+.proj-featured-grid .proj-featured:nth-child(5):last-child {
+  grid-column: 1 / -1;
+}
+
+/* compact list below */
 .project-list {
   list-style: none;
   padding: 0;
@@ -805,13 +773,17 @@ section {
 .proj-item[hidden] { display: none; }
 .proj-item:hover { background: var(--bg-tint); }
 
-/* featured items: rich vertical layout */
+/* featured cells inside the 2-col grid */
 .proj-featured {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 24px 4px;
+  gap: 8px;
+  padding: 22px 4px;
+  /* if the cell isn't the last odd-spanning one, give it a sibling separator */
+  border-top: 1px solid var(--rule);
+  margin-top: -1px;
 }
+.proj-featured:nth-child(-n + 2) { border-top: 0; }
 .proj-featured .proj-head {
   display: flex;
   align-items: baseline;
@@ -820,7 +792,7 @@ section {
 }
 .proj-featured .proj-name {
   font-family: var(--serif);
-  font-size: 24px;
+  font-size: clamp(20px, 2vw, 24px);
   font-weight: 380;
   letter-spacing: -0.018em;
   font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 28;
@@ -835,21 +807,12 @@ section {
   color: var(--accent);
   border-color: var(--accent-line);
 }
-.proj-featured .proj-tags {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
 .proj-featured .proj-desc {
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--text-mid);
   margin: 0;
-  max-width: 64ch;
+  max-width: 56ch;
 }
 .proj-featured .proj-stack {
   list-style: none;
@@ -862,8 +825,8 @@ section {
 .proj-featured .proj-meta {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 4px;
+  gap: 14px;
+  margin-top: 2px;
   font-family: var(--mono);
   font-size: 11px;
   color: var(--text-dim);
@@ -918,16 +881,18 @@ section {
 .proj-compact .proj-stars { color: var(--ochre); font-weight: 500; }
 .proj-compact .proj-date { min-width: 9ch; text-align: right; }
 
-/* transition between featured and compact items: a thicker rule */
-.proj-featured + .proj-compact { border-top: 1px solid var(--rule-mid); margin-top: 0; }
-
 @media (max-width: 760px) {
+  .proj-featured-grid {
+    grid-template-columns: 1fr;
+  }
+  .proj-featured { border-top: 1px solid var(--rule); }
+  .proj-featured:nth-child(-n + 2) { border-top: 1px solid var(--rule); }
+  .proj-featured:first-child { border-top: 0; }
   .proj-featured .proj-head {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 6px;
   }
-  .proj-featured .proj-tags { justify-content: flex-start; }
   .proj-compact {
     grid-template-columns: 1fr;
     gap: 4px;
@@ -974,6 +939,24 @@ section {
   line-height: 1.5;
 }
 .teach-block li:last-child { border-bottom: 0; }
+.teach-link {
+  color: var(--text);
+  border-bottom: 1px solid var(--accent-line);
+  padding-bottom: 1px;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.teach-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.teach-link::after {
+  content: " ↗";
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--accent);
+  opacity: 0.7;
+}
+.teach-link:hover::after { opacity: 1; }
 
 /* ============================================================
    Publicações — characterful bibliography

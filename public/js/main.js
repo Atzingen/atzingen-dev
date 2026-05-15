@@ -135,15 +135,12 @@
   }
 
   function renderAreas() {
-    const ul = $("[data-bind='profile.areas']");
-    ul.innerHTML = "";
-    ul.appendChild(el("li", {}, el("button", {
-      type: "button", class: "area-pill is-active", "data-area": "all",
-    }, t("section.projects.allAreas"))));
+    const dl = $("[data-bind='profile.areas']");
+    if (!dl) return;
+    dl.innerHTML = "";
     state.profile.areas.forEach((a) => {
-      ul.appendChild(el("li", {}, el("button", {
-        type: "button", class: "area-pill", "data-area": a.id,
-      }, pick(a.label))));
+      dl.appendChild(el("dt", { class: "area-name", "data-area": a.id }, pick(a.label)));
+      dl.appendChild(el("dd", { class: "area-desc" }, pick(a.description)));
     });
   }
 
@@ -181,9 +178,11 @@
   }
 
   function renderProjects() {
-    const list = $("[data-bind='projects.unified']");
-    if (!list) return;
-    list.innerHTML = "";
+    const featGrid = $("[data-bind='projects.featured']");
+    const compactList = $("[data-bind='projects.compact']");
+    if (!featGrid || !compactList) return;
+    featGrid.innerHTML = "";
+    compactList.innerHTML = "";
 
     const featured = state.projects.featured.slice(0, 5);
     const featuredNames = new Set(featured.map((p) => p.name));
@@ -193,20 +192,16 @@
       const stars = repo?.stars ?? 0;
       const lng = repo?.language || (p.stack && p.stack[0]) || "—";
       const updated = repo?.updatedAt || "";
-      const item = el("li", {
+      featGrid.appendChild(el("li", {
         class: "proj-item proj-featured",
         "data-name": p.name.toLowerCase(),
         "data-desc": (pick(p.summary) || "").toLowerCase(),
         "data-lang": lng,
         "data-updated": updated,
-        "data-areas": (p.areas || []).join(" "),
       }, [
         el("div", { class: "proj-head" }, [
           el("h3", { class: "proj-name" },
             el("a", { href: p.url, target: "_blank", rel: "noopener" }, p.name)),
-          el("ul", { class: "proj-tags" },
-            (p.areas || []).map((a) =>
-              el("li", { class: "tag tag-area", "data-area": a }, a))),
         ]),
         el("p", { class: "proj-desc" }, pick(p.summary)),
         (p.stack || []).length ? el("ul", { class: "proj-stack" },
@@ -222,8 +217,7 @@
             href: p.demo, target: "_blank", rel: "noopener", class: "proj-link",
           }, "demo →") : null,
         ]),
-      ]);
-      list.appendChild(item);
+      ]));
     });
 
     if (!state.repos) return;
@@ -234,7 +228,7 @@
       .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
 
     compact.forEach((r) => {
-      const item = el("li", {
+      compactList.appendChild(el("li", {
         class: "proj-item proj-compact",
         "data-name": r.name.toLowerCase(),
         "data-desc": (r.description || "").toLowerCase(),
@@ -250,8 +244,7 @@
           r.stars > 0 ? el("span", { class: "proj-stars" }, `★ ${r.stars}`) : null,
           el("span", { class: "proj-date" }, fmtDate(r.updatedAt)),
         ]),
-      ]);
-      list.appendChild(item);
+      ]));
     });
   }
 
@@ -260,16 +253,28 @@
     grid.innerHTML = "";
     const tg = state.profile.teaching;
     const blocks = [
-      { key: "section.teaching.courses",       items: tg.courses },
-      { key: "section.teaching.openMaterial",  items: tg.openMaterial },
-      { key: "section.teaching.talks",         items: tg.talks },
-      { key: "section.teaching.coordinated",   items: tg.programsCoordinated },
-      { key: "section.teaching.advising",      items: tg.advisingActive },
+      { key: "section.teaching.courses",        items: tg.courses },
+      { key: "section.teaching.researchActive", items: tg.researchActive },
+      { key: "section.teaching.openMaterial",   items: tg.openMaterial },
+      { key: "section.teaching.talks",          items: tg.talks },
+      { key: "section.teaching.coordinated",    items: tg.programsCoordinated },
+      { key: "section.teaching.advising",       items: tg.advisingActive },
     ];
     blocks.forEach((b) => {
+      const ul = el("ul", {});
+      (b.items || []).forEach((it) => {
+        // Accept either plain strings (legacy) or { label, url } objects.
+        const label = typeof it === "string" ? it : it.label;
+        const url = typeof it === "string" ? null : it.url;
+        ul.appendChild(el("li", {},
+          url
+            ? el("a", { href: url, target: "_blank", rel: "noopener", class: "teach-link" }, label)
+            : label,
+        ));
+      });
       grid.appendChild(el("section", { class: "teach-block" }, [
         el("h3", { class: "eyebrow" }, t(b.key)),
-        el("ul", {}, (b.items || []).map((i) => el("li", {}, i))),
+        ul,
       ]));
     });
   }

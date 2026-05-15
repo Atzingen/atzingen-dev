@@ -60,13 +60,6 @@
         <ul class="contact-row" data-bind="profile.contact.compact"></ul>
       </div>
     </div>
-    <a class="scroll-hint" href="#sobre">
-      <span data-i18n="hero.scrollHint">rolar</span>
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none"
-           stroke="currentColor" stroke-width="1.5">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
-      </svg>
-    </a>
   </section>
 
   <section id="sobre">
@@ -86,8 +79,7 @@
       <div class="section-head">
         <h2 data-i18n="section.areas.title">Áreas de pesquisa & atuação</h2>
       </div>
-      <p class="section-helper" data-i18n="section.areas.helper">Clique em uma área para filtrar projetos e repositórios.</p>
-      <ul class="area-pills" data-bind="profile.areas"></ul>
+      <dl class="areas-list" data-bind="profile.areas"></dl>
     </div>
   </section>
 
@@ -126,7 +118,8 @@
         <ul class="lang-pills" data-bind="repos.languages"></ul>
       </div>
 
-      <ul class="project-list" data-bind="projects.unified"></ul>
+      <ul class="proj-featured-grid" data-bind="projects.featured"></ul>
+      <ul class="project-list" data-bind="projects.compact"></ul>
       <p class="repo-empty" hidden data-i18n="section.opensource.empty"></p>
     </div>
   </section>

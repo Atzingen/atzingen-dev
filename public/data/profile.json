@@ -78,24 +78,77 @@
     }
   ],
   "areas": [
-    { "id": "ml",       "label": { "pt": "Machine Learning",   "en": "Machine Learning" } },
-    { "id": "cv",       "label": { "pt": "Computer Vision",    "en": "Computer Vision" } },
-    { "id": "cv-embed", "label": { "pt": "CV Embarcada",       "en": "Embedded CV" } },
-    { "id": "eeg",      "label": { "pt": "EEG / Sinais",       "en": "EEG / Signals" } },
-    { "id": "powerbi",  "label": { "pt": "Power BI / Data Eng","en": "Power BI / Data Eng" } },
-    { "id": "ai-tools", "label": { "pt": "AI Dev Tools",       "en": "AI Dev Tools" } },
-    { "id": "gov",      "label": { "pt": "Government Data",    "en": "Government Data" } }
+    {
+      "id": "ml",
+      "label": { "pt": "Machine Learning", "en": "Machine Learning" },
+      "description": {
+        "pt": "Modelagem com deep learning aplicada a sinais biomédicos (EEG), análise de imagens científicas e dados públicos. Foco em transformar dados brutos em modelos que sustentem decisões — do experimento à API que roda em produção. Stack principal: PyTorch, TensorFlow, scikit-learn.",
+        "en": "Deep-learning modelling applied to biomedical signals (EEG), scientific image analysis and public data. Focus on turning raw data into models that support real decisions — from experiment to production API. Stack: PyTorch, TensorFlow, scikit-learn."
+      }
+    },
+    {
+      "id": "cv",
+      "label": { "pt": "Computer Vision", "en": "Computer Vision" },
+      "description": {
+        "pt": "Visão computacional aplicada — segmentação, detecção e classificação. Projetos publicados em agricultura (crescimento de alface via segmentação), esportes (detecção de posições de Jiu-Jitsu com YOLO) e pesquisa acadêmica. Trabalho com OpenCV, YOLO, SAM3 e modelos clássicos quando o problema pede.",
+        "en": "Applied computer vision — segmentation, detection and classification. Published work in agriculture (lettuce growth via segmentation), sports (BJJ position detection with YOLO) and academic research. OpenCV, YOLO, SAM3, and classical models when the problem calls for them."
+      }
+    },
+    {
+      "id": "embedded",
+      "label": { "pt": "Embedded Systems", "en": "Embedded Systems" },
+      "description": {
+        "pt": "Visão computacional e ML rodando em hardware embarcado — NVIDIA Jetson, Raspberry Pi, ESP32 e microcontroladores. Curso aberto e webinar com material e exemplos. Engenharia para latência, consumo de energia e robustez em ambiente real.",
+        "en": "Computer vision and ML running on embedded hardware — NVIDIA Jetson, Raspberry Pi, ESP32 and microcontrollers. Open course and webinar with material and examples. Engineering for latency, power and robustness in real-world conditions."
+      }
+    },
+    {
+      "id": "data-eng",
+      "label": { "pt": "Data Engineering", "en": "Data Engineering" },
+      "description": {
+        "pt": "Plataformas de dados para governo e educação — Plataforma Nilo Peçanha (rede federal CET/IF), dashboards do MDS para cestas básicas e cozinha solidária, agroecologia (MMA). Tooling de Power BI: parser TMDL, automação DAX, pipelines ETL pensados para uso operacional, não relatório bonito.",
+        "en": "Data platforms for government and education — Brazil's federal CET/IF data platform, MDS dashboards for food baskets and solidarity kitchens, agroecology (MMA). Power BI tooling: TMDL parser, DAX automation, ETL pipelines built for operational use — not pretty reports."
+      }
+    },
+    {
+      "id": "ai",
+      "label": { "pt": "AI", "en": "AI" },
+      "description": {
+        "pt": "IA aplicada e ferramentas para desenvolvimento com IA — agents customizados com Claude, automação de tarefas educacionais com LLM, firewall e gateway para APIs de modelos. Tratamento da IA como infraestrutura prática e mantível, não como buzzword de marketing.",
+        "en": "Applied AI and AI-development tooling — custom Claude agents, LLM-driven automation for educational tasks, firewall and gateway for model APIs. Treating AI as practical, maintainable infrastructure — not a marketing buzzword."
+      }
+    }
   ],
   "teaching": {
-    "courses": ["Inteligência Artificial", "Visão Computacional", "Visão Computacional Embarcada"],
-    "openMaterial": ["IA-FIC-IFSP", "R-exams-Interface", "Oficinas_IFEMPREENDEDOR_2024"],
-    "talks": ["Webinar-Visão-Computacional-Embarcada"],
-    "programsCoordinated": ["IFMAISEMPREENDEDOR Piracicaba (2023)", "IFMAISEMPREENDEDOR Piracicaba (2025)"],
+    "courses": [
+      { "label": "Inteligência Artificial", "url": null },
+      { "label": "Visão Computacional", "url": null },
+      { "label": "Visão Computacional Embarcada", "url": null }
+    ],
+    "openMaterial": [
+      { "label": "IA-FIC-IFSP", "url": "https://github.com/Atzingen/IA-FIC-IFSP" },
+      { "label": "R-exams-Interface", "url": "https://github.com/Atzingen/R-exams-Interface" },
+      { "label": "Oficinas IFMAISEMPREENDEDOR 2024", "url": "https://github.com/Atzingen/Oficinas_IFEMPREENDEDOR_2024" }
+    ],
+    "talks": [
+      { "label": "Webinar — Visão Computacional Embarcada", "url": "https://github.com/Atzingen/Webinar-Vis-o-computacional-Embarcada" }
+    ],
+    "programsCoordinated": [
+      { "label": "IFMAISEMPREENDEDOR Piracicaba (2023)", "url": null },
+      { "label": "IFMAISEMPREENDEDOR Piracicaba (2025)", "url": null }
+    ],
+    "researchActive": [
+      { "label": "Plataforma Nilo Peçanha", "url": "https://www.gov.br/pnp" },
+      { "label": "EEG — sinais biomédicos com deep learning", "url": "https://github.com/Atzingen/EEG_Sweetners" },
+      { "label": "Visão computacional para agricultura", "url": "https://github.com/Atzingen/crescimento_plantas" },
+      { "label": "Dashboards do MDS — cesta básica e cozinha solidária", "url": "https://github.com/Atzingen/alimentacidades" },
+      { "label": "Visão computacional embarcada", "url": "https://github.com/Atzingen/Webinar-Vis-o-computacional-Embarcada" }
+    ],
     "advisingActive": [
-      "IC — EEG e tarefas cognitivas com IA (Eng. Computação)",
-      "IC — EEG e qualidades de café com IA (Eng. Computação)",
-      "IC — Corretor de Scripts (Eng. Computação)",
-      "IA Embarcada (parceria Cubatão + Guarulhos)"
+      { "label": "IC — EEG e tarefas cognitivas com IA (Eng. Computação)", "url": null },
+      { "label": "IC — EEG e qualidades de café com IA (Eng. Computação)", "url": null },
+      { "label": "IC — Corretor de Scripts (Eng. Computação)", "url": "https://github.com/Atzingen/R-exams-Interface" },
+      { "label": "IA Embarcada (parceria Cubatão + Guarulhos)", "url": null }
     ]
   },
   "contact": {
