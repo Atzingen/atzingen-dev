@@ -1,6 +1,15 @@
 {
   "selected": [
     {
+      "year": 2026,
+      "title": "An open-access WebApp for inverse Laplace transform analysis of time-domain nuclear magnetic resonance signals",
+      "venue": "Magnetic Resonance",
+      "vol": "v.7, p.39-51",
+      "coauthors": ["Moraes, T.B.", "Mazzero, L.P.", "Mendes, W.S.", "Zacharias, M.B.", "Cardinali, M.C.B."],
+      "isFirstAuthor": false,
+      "url": "https://doi.org/10.5194/mr-7-39-2026"
+    },
+    {
       "year": 2024,
       "title": "Detection of news written by the ChatGPT through authorship attribution performed by a bidirectional LSTM model",
       "venue": "Caderno Pedagógico",

@@ -35,8 +35,8 @@
       "period": "2014 — atual",
       "url": "https://prc.ifsp.edu.br",
       "description": {
-        "pt": "Disciplinas de Inteligência Artificial, Visão Computacional e Visão Computacional Embarcada. Material aberto em vários repositórios, incluindo curso FIC com 28⭐ e webinar de Visão Computacional Embarcada com 10⭐.",
-        "en": "Courses in Artificial Intelligence, Computer Vision and Embedded Computer Vision. Open material across several repositories, including a 28-star FIC course and a 10-star Embedded Computer Vision webinar."
+        "pt": "Professor desde 2014 das disciplinas de Inteligência Artificial, Visão Computacional e Visão Computacional Embarcada. Coordenador do programa IFMAISEMPREENDEDOR em Piracicaba (2023 e 2025). Orientações ativas em iniciação científica: EEG aplicado a tarefas cognitivas e qualidade de café, corretor automático de scripts e IA embarcada (parcerias com os campi de Cubatão e Guarulhos). Material aberto em vários repositórios — destaques: o curso FIC (28⭐) e o webinar de CV Embarcada (10⭐).",
+        "en": "Professor since 2014, teaching Artificial Intelligence, Computer Vision and Embedded Computer Vision. Coordinated the IFMAISEMPREENDEDOR programme in Piracicaba (2023 and 2025). Active undergraduate-research advising on EEG for cognitive tasks, EEG+AI for coffee quality, automatic script grading, and embedded AI (joint with the Cubatão and Guarulhos campuses). Open course material across several repositories — most starred: the FIC course (28⭐) and the embedded CV webinar (10⭐)."
       },
       "projects": ["IA-FIC-IFSP", "Webinar-Visão-Computacional-Embarcada", "VisaoComputacionalEmbarcada-2024", "R-exams-Interface", "Oficinas_IFEMPREENDEDOR_2024"]
     },
@@ -47,8 +47,8 @@
       "period": "2018 — atual",
       "url": "https://cepad.digital",
       "description": {
-        "pt": "Centro de Pesquisa em Análise de Dados do IFSP. Plataformas digitais e analytics para iniciativas governamentais em parceria com MDS, MMA, FNDE.",
-        "en": "Data Analysis Research Centre at IFSP. Digital platforms and analytics for government initiatives in partnership with the Ministries of Social Development, Environment, and the FNDE."
+        "pt": "Centro de Pesquisa em Análise de Dados do IFSP. Coordeno e participo de projetos de plataformas digitais para iniciativas federais em parceria com o MDS (dashboards de cestas básicas e cozinha solidária), MMA (agroecologia) e FNDE. Foco em transformar dados públicos em ferramentas operacionais — do pipeline ETL ao dashboard que o gestor de fato usa.",
+        "en": "Data Analysis Research Centre at IFSP. I coordinate and contribute to digital-platform projects for federal initiatives — partnerships with Brazil's Ministry of Social Development (food-basket and solidarity-kitchen dashboards), Ministry of Environment (agroecology) and FNDE. Focus on turning public data into operational tools — from the ETL pipeline to the dashboard the policy-maker actually opens."
       },
       "projects": ["alimentacidades", "dash-bacias", "agroecologiaMMA", "deserto-ia", "cozinhasolidaria", "agrotoxico-analytics", "Airflow-ETL", "nea-dashboard"]
     },
@@ -59,8 +59,8 @@
       "period": "2023 — atual",
       "url": "https://www.gov.br/pnp",
       "description": {
-        "pt": "Plataforma federal oficial de dados da rede CET/IF (SETEC/MEC). Engenharia de dados, dashboards e ferramentas de extração.",
-        "en": "Brazil's federal CET/IF data platform (SETEC/MEC). Data engineering, dashboards, extraction tooling."
+        "pt": "Plataforma federal oficial de dados da rede CET/IF (SETEC/MEC) — referência nacional para indicadores das escolas técnicas federais. Atuo na engenharia de dados, validação de unidades, dashboards públicos e ferramentas de extração e monitoramento (incluindo o ExtratorV2 e o pnp-monitor).",
+        "en": "Brazil's federal CET/IF data platform (SETEC/MEC) — the national reference for indicators across the federal technical-school network. Working on data engineering, unit-level validation, public dashboards and extraction/monitoring tooling (including ExtratorV2 and pnp-monitor)."
       },
       "projects": ["kiosk-pnp", "pnp-web", "ExtratorV2", "pnp-monitor", "pnp_publicada"]
     },
@@ -71,8 +71,8 @@
       "period": "—",
       "url": "https://quickium.com",
       "description": {
-        "pt": "Empresa de tecnologia voltada a soluções customizadas: motor próprio de visão computacional embarcada, pipelines de IA aplicada e plataformas de dados para clientes industriais e órgãos públicos.",
-        "en": "Technology company focused on custom solutions: in-house engine for embedded computer vision, applied-AI pipelines and data platforms for industrial clients and public-sector organisations."
+        "pt": "Co-fundador e CTO. Construímos software sob medida em visão computacional embarcada, IA aplicada e engenharia de dados — para clientes industriais, agronegócio e setor público. Da prototipagem em laboratório ao deploy em produção que precisa rodar, ser mantido e gerar valor mensurável.",
+        "en": "Co-founder and CTO. We build custom software around embedded computer vision, applied AI and data engineering — for industrial clients, agribusiness and the public sector. From lab prototype to production deployment that has to run, be maintained, and deliver measurable value."
       },
       "projects": []
     }

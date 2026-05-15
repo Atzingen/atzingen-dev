@@ -279,7 +279,14 @@
     if (!state.repos) return;
     const tbody = $("[data-bind='repos.rows']");
     tbody.innerHTML = "";
-    state.repos.repos.forEach((r) => {
+
+    // Keep only repos with a real description, sorted newest first, max 20
+    const shown = state.repos.repos
+      .filter((r) => r.description && r.description.trim() !== "")
+      .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""))
+      .slice(0, 20);
+
+    shown.forEach((r) => {
       const tr = el("tr", { "data-lang": r.language, "data-org": r.org, "data-updated": r.updatedAt }, [
         el("td", {}, el("a", { href: r.url, target: "_blank", rel: "noopener", class: "mono" }, r.name)),
         el("td", { class: "mono dim" }, r.org),
@@ -298,7 +305,7 @@
     }, lang() === "pt" ? "todas" : "all"));
     langs.appendChild(all);
     const counts = new Map();
-    state.repos.repos.forEach((r) => counts.set(r.language, (counts.get(r.language) || 0) + 1));
+    shown.forEach((r) => counts.set(r.language, (counts.get(r.language) || 0) + 1));
     Array.from(counts.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 8)
