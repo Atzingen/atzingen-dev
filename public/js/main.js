@@ -349,6 +349,7 @@
     renderContact();
     renderRepos();
     renderFooter();
+    document.dispatchEvent(new CustomEvent("atzingen:rendered"));
   }
 
   // ---------- boot ----------
@@ -381,11 +382,65 @@
     renderAll();
   }
 
+  // ---------- scroll-spy: highlight active nav link ----------
+
+  function initScrollSpy() {
+    const navLinks = $$(".nav a[href^='#']");
+    if (!navLinks.length) return;
+    const sections = navLinks
+      .map((a) => ({ link: a, target: document.querySelector(a.getAttribute("href")) }))
+      .filter((p) => p.target);
+    if (!sections.length) return;
+
+    let activeHash = null;
+    const setActive = (hash) => {
+      if (hash === activeHash) return;
+      activeHash = hash;
+      navLinks.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === hash));
+    };
+
+    // The active section is the last one whose top has crossed an anchor line near the top
+    // of the viewport. Below that anchor, no section is active (we're still in the hero).
+    const ANCHOR_OFFSET = 120; // px below the topbar
+    const update = () => {
+      const anchor = ANCHOR_OFFSET;
+      let current = null;
+      for (const { link, target } of sections) {
+        const top = target.getBoundingClientRect().top;
+        if (top - anchor <= 0) current = link;
+        else break;
+      }
+      setActive(current ? current.getAttribute("href") : null);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+
+    // Re-evaluate after data loads (sections may grow).
+    document.addEventListener("atzingen:rendered", update);
+
+    // Manual click sets active immediately, before scroll animation.
+    navLinks.forEach((a) => {
+      a.addEventListener("click", () => setActive(a.getAttribute("href")));
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     if (window.atzI18n?.dict) boot();
     else document.addEventListener("atzingen:lang", () => {
       if (!state.profile) boot();
       else renderAll();
     }, { once: false });
+    initScrollSpy();
   });
 })();

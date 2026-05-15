@@ -147,19 +147,16 @@ button, input {
 }
 
 section {
-  padding: clamp(72px, 9vw, 124px) 0;
-  border-top: 1px solid var(--rule);
+  padding: clamp(48px, 5vw, 72px) 0;
 }
-section:first-of-type { border-top: 0; }
 
-/* Section head — chapter-marker style with right-side meta */
+/* Section head — chapter-marker: clean h2 with an editorial underline + accent dash */
 .section-head {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: end;
-  gap: 8px 22px;
-  margin-bottom: clamp(36px, 4.5vw, 64px);
-  padding-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  margin-bottom: clamp(28px, 3.5vw, 48px);
+  padding-bottom: 12px;
   border-bottom: 1.5px solid var(--rule-mid);
   position: relative;
 }
@@ -168,78 +165,11 @@ section:first-of-type { border-top: 0; }
   position: absolute;
   left: 0;
   bottom: -1.5px;
-  width: 80px;
+  width: 64px;
   height: 1.5px;
   background: var(--accent);
 }
-.section-head .eyebrow {
-  font-family: var(--serif);
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 380;
-  letter-spacing: -0.02em;
-  color: var(--ochre);
-  text-transform: none;
-  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 60;
-  line-height: 0.9;
-  font-style: italic;
-}
-.section-head h2 {
-  margin: 0;
-  align-self: end;
-}
-
-/* ============================================================
-   Status strip (very thin top bar inspired by scope)
-   ============================================================ */
-
-.statusbar {
-  background: oklch(0.205 0.022 245);
-  color: oklch(0.85 0.010 80);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-}
-.statusbar-inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  height: 28px;
-  padding-top: 0;
-  padding-bottom: 0;
-  flex-wrap: wrap;
-}
-.sb-led {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: oklch(0.78 0.150 145);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 10.5px;
-}
-.sb-led .dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: oklch(0.82 0.180 145);
-  box-shadow: 0 0 8px oklch(0.82 0.180 145 / 0.7);
-  animation: pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%, 90% { opacity: 1; }
-  95% { opacity: 0.3; }
-}
-.sb-meta {
-  color: oklch(0.72 0.010 80);
-  margin-right: auto;
-}
-.sb-cta a {
-  color: oklch(0.85 0.140 65);
-  text-decoration: none;
-  border-bottom: 1px dotted oklch(0.55 0.10 65);
-  padding-bottom: 1px;
-  transition: color .12s, border-color .12s;
-}
-.sb-cta a:hover { color: oklch(0.92 0.160 65); border-color: oklch(0.85 0.140 65); }
-@media (max-width: 640px) { .sb-meta, .sb-cta { display: none; } }
+.section-head h2 { margin: 0; }
 
 /* ============================================================
    Topbar
@@ -294,21 +224,29 @@ section:first-of-type { border-top: 0; }
   font-size: 13.5px;
   font-weight: 450;
   letter-spacing: 0;
-  transition: color 120ms ease;
+  transition: color 180ms ease;
   position: relative;
 }
 .nav a:hover { color: var(--text); }
 .nav a::after {
   content: "";
   position: absolute;
-  left: 0; right: 0; bottom: -4px;
+  left: 0; right: 0; bottom: -6px;
   height: 2px;
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 180ms ease;
+  transition: transform 220ms cubic-bezier(.2, .8, .2, 1);
 }
 .nav a:hover::after { transform: scaleX(1); }
+.nav a.is-active {
+  color: var(--text);
+  font-weight: 500;
+}
+.nav a.is-active::after {
+  transform: scaleX(1);
+  background: var(--accent);
+}
 
 .lang-toggle {
   background: transparent;
@@ -335,19 +273,9 @@ section:first-of-type { border-top: 0; }
    ============================================================ */
 
 .hero {
-  padding: clamp(64px, 10vw, 128px) 0 clamp(56px, 9vw, 112px);
+  padding: clamp(48px, 6vw, 80px) 0 clamp(24px, 3vw, 40px);
   border-top: 0;
   position: relative;
-}
-.hero::before {
-  content: "";
-  position: absolute;
-  left: var(--pad-x); right: var(--pad-x);
-  top: clamp(40px, 6vw, 80px);
-  height: 1px;
-  background: var(--accent);
-  opacity: 0.35;
-  max-width: 100px;
 }
 .hero-grid {
   display: grid;
@@ -497,7 +425,7 @@ section:first-of-type { border-top: 0; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: clamp(48px, 7vw, 88px) 0 0;
+  margin: clamp(28px, 4vw, 48px) 0 0;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.20em;
@@ -829,8 +757,26 @@ section:first-of-type { border-top: 0; }
 }
 
 /* ============================================================
-   Projetos — list with quiet sparkles
+   Projetos — intro paragraph + featured list + repo table
    ============================================================ */
+
+.section-intro {
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.6vw, 19px);
+  line-height: 1.55;
+  color: var(--text);
+  max-width: 64ch;
+  margin: -8px 0 clamp(32px, 4vw, 48px);
+  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 24;
+  font-weight: 380;
+}
+.section-intro + .projects-grid {
+  margin-bottom: clamp(40px, 6vw, 72px);
+}
+.section-intro + .projects-grid + .repo-controls {
+  padding-top: clamp(20px, 3vw, 32px);
+  border-top: 1.5px solid var(--rule-mid);
+}
 
 .projects-grid {
   display: grid;

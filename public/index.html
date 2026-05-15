@@ -21,12 +21,6 @@
 </head>
 <body>
 
-<div class="statusbar"><div class="shell statusbar-inner">
-  <span class="sb-led"><span class="dot"></span> online</span>
-  <span class="sb-meta">Piracicaba / SP · 2026</span>
-  <span class="sb-cta"><a href="#contato">aberto a colaborações de pesquisa</a> <span aria-hidden="true">→</span></span>
-</div></div>
-
 <header class="topbar">
   <div class="shell topbar-inner">
     <a class="brand" href="#top" aria-label="atzingen.dev">
@@ -36,9 +30,9 @@
       <a href="#sobre"        data-i18n="nav.about">Sobre</a>
       <a href="#areas"        data-i18n="nav.areas">Áreas</a>
       <a href="#papeis"       data-i18n="nav.roles">Atuação</a>
-      <a href="#projetos"     data-i18n="nav.projects">Projetos</a>
+      <a href="#ensino"       data-i18n="nav.teaching">Ensino</a>
       <a href="#publicacoes"  data-i18n="nav.publications">Publicações</a>
-      <a href="#open-source"  data-i18n="nav.opensource">Open Source</a>
+      <a href="#projetos"     data-i18n="nav.projects">Projetos</a>
       <a href="#contato"      data-i18n="nav.contact">Contato</a>
     </nav>
     <button class="lang-toggle" type="button"
@@ -78,7 +72,6 @@
   <section id="sobre">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">01</span>
         <h2 data-i18n="section.about.title">Sobre</h2>
       </div>
       <div class="about-grid">
@@ -91,7 +84,6 @@
   <section id="areas">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">02</span>
         <h2 data-i18n="section.areas.title">Áreas de pesquisa & atuação</h2>
       </div>
       <p class="section-helper" data-i18n="section.areas.helper">Clique em uma área para filtrar projetos e repositórios.</p>
@@ -102,27 +94,15 @@
   <section id="papeis">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">03</span>
         <h2 data-i18n="section.roles.title">Atuação</h2>
       </div>
       <div class="roles-grid" data-bind="profile.roles.full"></div>
     </div>
   </section>
 
-  <section id="projetos">
-    <div class="shell">
-      <div class="section-head">
-        <span class="eyebrow">04</span>
-        <h2 data-i18n="section.projects.title">Projetos em destaque</h2>
-      </div>
-      <div class="projects-grid" data-bind="projects.featured"></div>
-    </div>
-  </section>
-
   <section id="ensino">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">05</span>
         <h2 data-i18n="section.teaching.title">Ensino, pesquisa & divulgação</h2>
       </div>
       <div class="teaching-grid" data-bind="profile.teaching"></div>
@@ -132,7 +112,6 @@
   <section id="publicacoes">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">06</span>
         <h2 data-i18n="section.publications.title">Publicações selecionadas</h2>
       </div>
       <ol class="pub-list" data-bind="publications.selected"></ol>
@@ -142,12 +121,13 @@
     </div>
   </section>
 
-  <section id="open-source">
+  <section id="projetos">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">07</span>
-        <h2 data-i18n="section.opensource.title">Open source</h2>
+        <h2 data-i18n="section.projects.title">Projetos</h2>
       </div>
+      <p class="section-intro" data-i18n="section.projects.intro">A maior parte do meu código é aberta — material didático do IFSP, protótipos de pesquisa do CEPAD, ferramentas internas que viraram bibliotecas e experimentos pessoais com IA. Em destaque abaixo, alguns trabalhos representativos; em seguida, o catálogo completo de repositórios públicos.</p>
+      <div class="projects-grid" data-bind="projects.featured"></div>
       <div class="repo-controls">
         <input type="search" id="repo-search"
                data-i18n-placeholder="section.opensource.searchPlaceholder">
@@ -179,7 +159,6 @@
   <section id="contato">
     <div class="shell">
       <div class="section-head">
-        <span class="eyebrow">08</span>
         <h2 data-i18n="section.contact.title">Contato</h2>
       </div>
       <p class="contact-cta" data-i18n="section.contact.cta"></p>

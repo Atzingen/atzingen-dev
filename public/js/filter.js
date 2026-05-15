@@ -86,6 +86,13 @@
         applyRepoFilters();
       });
     });
+
+    // After main.js renders sections (rows are now in the DOM), re-apply filters
+    // so the empty-state message reflects the populated table.
+    document.addEventListener("atzingen:rendered", () => {
+      applyAreaFilter();
+      applyRepoFilters();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", init);
