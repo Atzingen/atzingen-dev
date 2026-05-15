@@ -1,7 +1,10 @@
 /* atzingen.dev — filter
- * Listens for clicks on .area-pill and .lang-pill (open-source section)
- * and filters .project-card and .repo-table rows accordingly. Also wires
- * the search input and the "active in last 12 months" checkbox.
+ * Single unified filter for the .project-list inside #projetos.
+ * - search box: filters by name/description text
+ * - recent toggle: keep only repos updated in the last 12 months
+ * - language pills: keep only the chosen primary language
+ * - area pills (from #areas section): filter featured items by curated area;
+ *   compact items are not constrained by area (they have no curated areas).
  */
 
 (function () {
@@ -9,43 +12,44 @@
 
   const state = {
     area: "all",
-    repoLang: "*",
-    repoSearch: "",
-    repoRecentOnly: false,
+    lang: "*",
+    search: "",
+    recent: false,
   };
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  function applyAreaFilter() {
-    $$(".project-card").forEach((card) => {
-      const areas = (card.dataset.areas || "").split(" ").filter(Boolean);
-      const show = state.area === "all" || areas.includes(state.area);
-      card.toggleAttribute("hidden", !show);
-    });
-    $$(".area-pill").forEach((b) => b.classList.toggle("is-active", b.dataset.area === state.area));
-  }
-
-  function applyRepoFilters() {
+  function applyFilters() {
     const cutoff = Date.now() - 365 * 24 * 60 * 60 * 1000;
-    const q = state.repoSearch.toLowerCase().trim();
+    const q = state.search.toLowerCase().trim();
 
     let visible = 0;
-    $$(".repo-table tbody tr").forEach((tr) => {
-      const lang = tr.dataset.lang || "";
-      const updated = Date.parse(tr.dataset.updated || "");
-      const text = tr.textContent.toLowerCase();
-      const matchLang = state.repoLang === "*" || lang === state.repoLang;
-      const matchSearch = !q || text.includes(q);
-      const matchRecent = !state.repoRecentOnly || (updated && updated >= cutoff);
-      const show = matchLang && matchSearch && matchRecent;
-      tr.toggleAttribute("hidden", !show);
+    $$(".proj-item").forEach((item) => {
+      const isFeatured = item.classList.contains("proj-featured");
+      const itemLang = item.dataset.lang || "";
+      const itemUpdated = Date.parse(item.dataset.updated || "");
+      const itemAreas = (item.dataset.areas || "").split(" ").filter(Boolean);
+      const itemText = ((item.dataset.name || "") + " " + (item.dataset.desc || "")).toLowerCase();
+
+      const matchLang = state.lang === "*" || itemLang === state.lang;
+      const matchSearch = !q || itemText.includes(q);
+      const matchRecent = !state.recent || (itemUpdated && itemUpdated >= cutoff);
+      // Area constraints only apply to curated featured items.
+      const matchArea = state.area === "all" || !isFeatured || itemAreas.includes(state.area);
+
+      const show = matchLang && matchSearch && matchRecent && matchArea;
+      item.toggleAttribute("hidden", !show);
       if (show) visible++;
     });
+
     const empty = $(".repo-empty");
     if (empty) empty.toggleAttribute("hidden", visible !== 0);
+
+    $$(".area-pill").forEach((b) =>
+      b.classList.toggle("is-active", b.dataset.area === state.area));
     $$(".lang-pill").forEach((b) =>
-      b.classList.toggle("is-active", b.dataset.langFilter === state.repoLang));
+      b.classList.toggle("is-active", b.dataset.langFilter === state.lang));
   }
 
   function init() {
@@ -53,13 +57,13 @@
       const area = ev.target.closest(".area-pill");
       if (area) {
         state.area = area.dataset.area;
-        applyAreaFilter();
+        applyFilters();
         return;
       }
       const lang = ev.target.closest(".lang-pill");
       if (lang) {
-        state.repoLang = lang.dataset.langFilter;
-        applyRepoFilters();
+        state.lang = lang.dataset.langFilter;
+        applyFilters();
         return;
       }
     });
@@ -67,31 +71,24 @@
     const search = $("#repo-search");
     if (search) {
       search.addEventListener("input", (ev) => {
-        state.repoSearch = ev.target.value;
-        applyRepoFilters();
+        state.search = ev.target.value;
+        applyFilters();
       });
     }
     const recent = $("#repo-recent");
     if (recent) {
       recent.addEventListener("change", (ev) => {
-        state.repoRecentOnly = ev.target.checked;
-        applyRepoFilters();
+        state.recent = ev.target.checked;
+        applyFilters();
       });
     }
 
-    document.addEventListener("atzingen:lang", () => {
-      // pills re-rendered by main.js; reapply current state
-      requestAnimationFrame(() => {
-        applyAreaFilter();
-        applyRepoFilters();
-      });
-    });
-
-    // After main.js renders sections (rows are now in the DOM), re-apply filters
-    // so the empty-state message reflects the populated table.
     document.addEventListener("atzingen:rendered", () => {
-      applyAreaFilter();
-      applyRepoFilters();
+      applyFilters();
+    });
+    document.addEventListener("atzingen:lang", () => {
+      // pills get re-rendered on language change; reapply current state next frame
+      requestAnimationFrame(applyFilters);
     });
   }
 

@@ -181,29 +181,77 @@
   }
 
   function renderProjects() {
-    const grid = $("[data-bind='projects.featured']");
-    grid.innerHTML = "";
-    state.projects.featured.forEach((p) => {
+    const list = $("[data-bind='projects.unified']");
+    if (!list) return;
+    list.innerHTML = "";
+
+    const featured = state.projects.featured.slice(0, 5);
+    const featuredNames = new Set(featured.map((p) => p.name));
+
+    featured.forEach((p) => {
       const repo = findRepo(p.name, p.org);
       const stars = repo?.stars ?? 0;
       const lng = repo?.language || (p.stack && p.stack[0]) || "—";
-      const card = el("article", {
-        class: "project-card", "data-areas": (p.areas || []).join(" "),
+      const updated = repo?.updatedAt || "";
+      const item = el("li", {
+        class: "proj-item proj-featured",
+        "data-name": p.name.toLowerCase(),
+        "data-desc": (pick(p.summary) || "").toLowerCase(),
+        "data-lang": lng,
+        "data-updated": updated,
+        "data-areas": (p.areas || []).join(" "),
       }, [
-        el("div", { class: "project-tags" },
-          (p.areas || []).map((a) => el("span", { class: "tag tag-area", "data-area": a }, a))),
-        el("h3", {}, el("a", { href: p.url, target: "_blank", rel: "noopener" }, p.name)),
-        el("p", {}, pick(p.summary)),
-        el("ul", { class: "stack-row" },
-          (p.stack || []).map((s) => el("li", { class: "tag tag-mono" }, s))),
-        el("footer", { class: "project-foot" }, [
-          el("span", { class: "tag tag-mono" }, lng),
-          stars > 0 ? el("span", { class: "stars" }, `★ ${stars}`) : null,
-          el("a", { href: p.url, target: "_blank", rel: "noopener" }, "GitHub"),
-          p.demo ? el("a", { href: p.demo, target: "_blank", rel: "noopener", class: "demo-link" }, "demo") : null,
+        el("div", { class: "proj-head" }, [
+          el("h3", { class: "proj-name" },
+            el("a", { href: p.url, target: "_blank", rel: "noopener" }, p.name)),
+          el("ul", { class: "proj-tags" },
+            (p.areas || []).map((a) =>
+              el("li", { class: "tag tag-area", "data-area": a }, a))),
+        ]),
+        el("p", { class: "proj-desc" }, pick(p.summary)),
+        (p.stack || []).length ? el("ul", { class: "proj-stack" },
+          (p.stack || []).map((s) => el("li", { class: "tag tag-mono" }, s))) : null,
+        el("div", { class: "proj-meta" }, [
+          el("span", { class: "proj-lang" }, lng),
+          stars > 0 ? el("span", { class: "proj-stars" }, `★ ${stars}`) : null,
+          updated ? el("span", { class: "proj-date" }, fmtDate(updated)) : null,
+          el("a", {
+            href: p.url, target: "_blank", rel: "noopener", class: "proj-link",
+          }, "GitHub →"),
+          p.demo ? el("a", {
+            href: p.demo, target: "_blank", rel: "noopener", class: "proj-link",
+          }, "demo →") : null,
         ]),
       ]);
-      grid.appendChild(card);
+      list.appendChild(item);
+    });
+
+    if (!state.repos) return;
+    const compact = state.repos.repos
+      .filter((r) => r.org === "Atzingen")
+      .filter((r) => !featuredNames.has(r.name))
+      .filter((r) => r.description && r.description.trim() !== "")
+      .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""));
+
+    compact.forEach((r) => {
+      const item = el("li", {
+        class: "proj-item proj-compact",
+        "data-name": r.name.toLowerCase(),
+        "data-desc": (r.description || "").toLowerCase(),
+        "data-lang": r.language || "",
+        "data-updated": r.updatedAt || "",
+      }, [
+        el("a", {
+          href: r.url, target: "_blank", rel: "noopener", class: "proj-name",
+        }, r.name),
+        el("span", { class: "proj-desc" }, r.description || ""),
+        el("span", { class: "proj-meta" }, [
+          el("span", { class: "proj-lang" }, r.language || "—"),
+          r.stars > 0 ? el("span", { class: "proj-stars" }, `★ ${r.stars}`) : null,
+          el("span", { class: "proj-date" }, fmtDate(r.updatedAt)),
+        ]),
+      ]);
+      list.appendChild(item);
     });
   }
 
@@ -287,36 +335,22 @@
   }
 
   function renderRepos() {
-    if (!state.repos) return;
-    const tbody = $("[data-bind='repos.rows']");
-    tbody.innerHTML = "";
+    // Build language pills from rendered .proj-item items (featured + compact).
+    const langs = $("[data-bind='repos.languages']");
+    if (!langs) return;
+    langs.innerHTML = "";
 
-    // Keep only repos with a real description, sorted newest first, max 20
-    const shown = state.repos.repos
-      .filter((r) => r.description && r.description.trim() !== "")
-      .sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || ""))
-      .slice(0, 20);
-
-    shown.forEach((r) => {
-      const tr = el("tr", { "data-lang": r.language, "data-org": r.org, "data-updated": r.updatedAt }, [
-        el("td", {}, el("a", { href: r.url, target: "_blank", rel: "noopener", class: "mono" }, r.name)),
-        el("td", { class: "mono dim" }, r.org),
-        el("td", { class: "mono" }, r.language),
-        el("td", { class: "mono num" }, r.stars > 0 ? String(r.stars) : ""),
-        el("td", { class: "mono dim" }, fmtDate(r.updatedAt)),
-        el("td", {}, r.description || ""),
-      ]);
-      tbody.appendChild(tr);
+    const items = $$(".proj-item");
+    const counts = new Map();
+    items.forEach((it) => {
+      const l = it.dataset.lang;
+      if (l && l !== "—") counts.set(l, (counts.get(l) || 0) + 1);
     });
 
-    const langs = $("[data-bind='repos.languages']");
-    langs.innerHTML = "";
-    const all = el("li", {}, el("button", {
+    langs.appendChild(el("li", {}, el("button", {
       type: "button", class: "lang-pill is-active", "data-lang-filter": "*",
-    }, lang() === "pt" ? "todas" : "all"));
-    langs.appendChild(all);
-    const counts = new Map();
-    shown.forEach((r) => counts.set(r.language, (counts.get(r.language) || 0) + 1));
+    }, lang() === "pt" ? "todas" : "all")));
+
     Array.from(counts.entries())
       .sort((a, b) => b[1] - a[1])
       .slice(0, 8)

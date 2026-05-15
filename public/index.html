@@ -31,8 +31,8 @@
       <a href="#areas"        data-i18n="nav.areas">Áreas</a>
       <a href="#papeis"       data-i18n="nav.roles">Atuação</a>
       <a href="#ensino"       data-i18n="nav.teaching">Ensino</a>
-      <a href="#publicacoes"  data-i18n="nav.publications">Publicações</a>
       <a href="#projetos"     data-i18n="nav.projects">Projetos</a>
+      <a href="#publicacoes"  data-i18n="nav.publications">Publicações</a>
       <a href="#contato"      data-i18n="nav.contact">Contato</a>
     </nav>
     <button class="lang-toggle" type="button"
@@ -109,25 +109,13 @@
     </div>
   </section>
 
-  <section id="publicacoes">
-    <div class="shell">
-      <div class="section-head">
-        <h2 data-i18n="section.publications.title">Publicações selecionadas</h2>
-      </div>
-      <ol class="pub-list" data-bind="publications.selected"></ol>
-      <p class="pub-cta">
-        <a target="_blank" rel="noopener" data-bind="publications.lattesCta"></a>
-      </p>
-    </div>
-  </section>
-
   <section id="projetos">
     <div class="shell">
       <div class="section-head">
-        <h2 data-i18n="section.projects.title">Projetos</h2>
+        <h2 data-i18n="section.projects.title">Projetos Open Source</h2>
       </div>
-      <p class="section-intro" data-i18n="section.projects.intro">A maior parte do meu código é aberta — material didático do IFSP, protótipos de pesquisa do CEPAD, ferramentas internas que viraram bibliotecas e experimentos pessoais com IA. Em destaque abaixo, alguns trabalhos representativos; em seguida, o catálogo completo de repositórios públicos.</p>
-      <div class="projects-grid" data-bind="projects.featured"></div>
+      <p class="section-intro" data-i18n="section.projects.intro">Tudo aqui é código aberto que escrevi sozinho — material didático, ferramentas internas que viraram bibliotecas, experimentos de pesquisa e protótipos pessoais. Os cinco em destaque resumem o trabalho atual em IA, visão computacional e ciência de dados; abaixo, todo o resto.</p>
+
       <div class="repo-controls">
         <input type="search" id="repo-search"
                data-i18n-placeholder="section.opensource.searchPlaceholder">
@@ -137,22 +125,21 @@
         </label>
         <ul class="lang-pills" data-bind="repos.languages"></ul>
       </div>
-      <div class="repo-table-wrap">
-        <table class="repo-table">
-          <thead>
-            <tr>
-              <th data-i18n="section.opensource.cols.repo">repositório</th>
-              <th data-i18n="section.opensource.cols.org">organização</th>
-              <th data-i18n="section.opensource.cols.lang">linguagem</th>
-              <th data-i18n="section.opensource.cols.stars">⭐</th>
-              <th data-i18n="section.opensource.cols.updated">atualizado</th>
-              <th data-i18n="section.opensource.cols.desc">descrição</th>
-            </tr>
-          </thead>
-          <tbody data-bind="repos.rows"></tbody>
-        </table>
-        <p class="repo-empty" hidden data-i18n="section.opensource.empty"></p>
+
+      <ul class="project-list" data-bind="projects.unified"></ul>
+      <p class="repo-empty" hidden data-i18n="section.opensource.empty"></p>
+    </div>
+  </section>
+
+  <section id="publicacoes">
+    <div class="shell">
+      <div class="section-head">
+        <h2 data-i18n="section.publications.title">Publicações selecionadas</h2>
       </div>
+      <ol class="pub-list" data-bind="publications.selected"></ol>
+      <p class="pub-cta">
+        <a target="_blank" rel="noopener" data-bind="publications.lattesCta"></a>
+      </p>
     </div>
   </section>
 

@@ -757,7 +757,8 @@ section {
 }
 
 /* ============================================================
-   Projetos — intro paragraph + featured list + repo table
+   Projetos Open Source — intro + filter bar + unified project list
+   (5 featured items at top, compact rows for the rest)
    ============================================================ */
 
 .section-intro {
@@ -766,79 +767,12 @@ section {
   line-height: 1.55;
   color: var(--text);
   max-width: 64ch;
-  margin: -8px 0 clamp(32px, 4vw, 48px);
+  margin: -8px 0 clamp(28px, 3.5vw, 40px);
   font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 24;
   font-weight: 380;
 }
-.section-intro + .projects-grid {
-  margin-bottom: clamp(40px, 6vw, 72px);
-}
-.section-intro + .projects-grid + .repo-controls {
-  padding-top: clamp(20px, 3vw, 32px);
-  border-top: 1.5px solid var(--rule-mid);
-}
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-.project-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px 32px;
-  padding: 26px 0;
-  border-top: 1px solid var(--rule);
-  background: transparent;
-  border-radius: 0;
-  transition: background-color 120ms ease;
-  align-items: baseline;
-  position: relative;
-}
-.project-card[hidden] { display: none; }
-.project-card:first-child { border-top: 1.5px solid var(--rule-mid); }
-.project-card:hover { background: var(--bg-tint); }
-.project-card h3 {
-  grid-column: 1;
-  grid-row: 1;
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 380;
-  letter-spacing: -0.018em;
-  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 28;
-  margin: 0;
-}
-.project-card h3 a {
-  color: var(--text);
-  border-bottom: 1.5px solid transparent;
-  padding-bottom: 1px;
-}
-.project-card h3 a:hover {
-  color: var(--accent);
-  border-color: var(--accent-line);
-}
-.project-card .project-tags {
-  grid-column: 2;
-  grid-row: 1;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-.project-card p {
-  grid-column: 1 / -1;
-  grid-row: 2;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--text-mid);
-  margin: 4px 0 8px;
-  max-width: 62ch;
-}
-.project-tags .tag-area {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: var(--accent-line);
-}
+/* shared tag style (also used elsewhere) */
 .tag {
   display: inline-block;
   font-family: var(--mono);
@@ -851,20 +785,81 @@ section {
   background: transparent;
 }
 .tag-mono { color: var(--text-mid); }
+.tag-area {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
 
-.stack-row {
-  grid-column: 1 / -1;
-  grid-row: 3;
+/* unified project list */
+.project-list {
   list-style: none;
   padding: 0;
-  margin: 2px 0 8px;
+  margin: 0;
+  border-top: 1.5px solid var(--rule-mid);
+}
+.proj-item {
+  border-bottom: 1px solid var(--rule);
+  transition: background-color 120ms ease;
+}
+.proj-item[hidden] { display: none; }
+.proj-item:hover { background: var(--bg-tint); }
+
+/* featured items: rich vertical layout */
+.proj-featured {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px 4px;
+}
+.proj-featured .proj-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.proj-featured .proj-name {
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 380;
+  letter-spacing: -0.018em;
+  font-variation-settings: "SOFT" 25, "WONK" 0, "opsz" 28;
+  margin: 0;
+}
+.proj-featured .proj-name a {
+  color: var(--text);
+  border-bottom: 1.5px solid transparent;
+  padding-bottom: 1px;
+}
+.proj-featured .proj-name a:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+}
+.proj-featured .proj-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.proj-featured .proj-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-mid);
+  margin: 0;
+  max-width: 64ch;
+}
+.proj-featured .proj-stack {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 4px;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
 }
-.project-foot {
-  grid-column: 1 / -1;
-  grid-row: 4;
+.proj-featured .proj-meta {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -873,22 +868,73 @@ section {
   font-size: 11px;
   color: var(--text-dim);
   letter-spacing: 0.04em;
+  flex-wrap: wrap;
 }
-.project-foot .stars { color: var(--ochre); font-weight: 500; }
-.project-foot a {
+.proj-featured .proj-stars { color: var(--ochre); font-weight: 500; }
+.proj-featured .proj-link {
   color: var(--accent);
   border-bottom: 1px solid var(--accent-line);
   padding-bottom: 1px;
 }
-.project-foot a:hover { color: var(--accent-h); border-color: var(--accent); }
-.project-foot .demo-link::before { content: ""; }
+.proj-featured .proj-link:hover { color: var(--accent-h); border-color: var(--accent); }
+
+/* compact rows: dense table-like */
+.proj-compact {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr) auto;
+  column-gap: 18px;
+  align-items: baseline;
+  padding: 10px 4px;
+  font-size: 13px;
+}
+.proj-compact .proj-name {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.proj-compact .proj-name:hover { color: var(--accent-h); }
+.proj-compact .proj-desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.45;
+}
+.proj-compact .proj-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.proj-compact .proj-lang { min-width: 9ch; }
+.proj-compact .proj-stars { color: var(--ochre); font-weight: 500; }
+.proj-compact .proj-date { min-width: 9ch; text-align: right; }
+
+/* transition between featured and compact items: a thicker rule */
+.proj-featured + .proj-compact { border-top: 1px solid var(--rule-mid); margin-top: 0; }
 
 @media (max-width: 760px) {
-  .project-card { grid-template-columns: 1fr; }
-  .project-card .project-tags { grid-column: 1; grid-row: 2; justify-content: flex-start; }
-  .project-card p { grid-row: 3; }
-  .stack-row { grid-row: 4; }
-  .project-foot { grid-row: 5; }
+  .proj-featured .proj-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .proj-featured .proj-tags { justify-content: flex-start; }
+  .proj-compact {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 4px;
+  }
+  .proj-compact .proj-meta { justify-content: flex-start; }
+  .proj-compact .proj-date { text-align: left; min-width: 0; }
 }
 
 /* ============================================================
@@ -1018,15 +1064,17 @@ section {
 .pub-cta a::after { content: " →"; }
 
 /* ============================================================
-   Open source
+   Filter bar — shared by Projetos Open Source section
    ============================================================ */
 
 .repo-controls {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px 18px;
-  margin-bottom: 22px;
+  gap: 12px 18px;
+  margin: 0 0 clamp(20px, 2.5vw, 32px);
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
 }
 #repo-search {
   flex: 1 1 240px;
@@ -1077,37 +1125,6 @@ section {
   color: var(--bg);
 }
 
-.repo-table-wrap { overflow-x: auto; }
-.repo-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-.repo-table th {
-  text-align: left;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  font-weight: 500;
-  padding: 11px 14px;
-  border-bottom: 1.5px solid var(--rule-mid);
-  background: var(--bg-tint);
-}
-.repo-table td {
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-  color: var(--text);
-}
-.repo-table tr[hidden] { display: none; }
-.repo-table .mono { font-family: var(--mono); font-size: 12.5px; }
-.repo-table .num { text-align: right; color: var(--ochre); font-weight: 500; }
-.repo-table .dim { color: var(--text-dim); }
-.repo-table tr:hover td { background: var(--accent-soft); }
-.repo-table td a { color: var(--accent); }
-.repo-table td a:hover { color: var(--accent-h); }
 .repo-empty {
   font-family: var(--mono);
   font-size: 12px;
