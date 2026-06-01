@@ -6,25 +6,25 @@
     "en": "Professor · Researcher · Engineer"
   },
   "oneLiner": {
-    "pt": "Inteligência artificial aplicada e ciência de dados — visão computacional embarcada, deep learning sobre sinais biomédicos (EEG) e plataformas de dados para educação, governo e indústria.",
-    "en": "Applied AI and data science — embedded computer vision, deep learning on biomedical signals (EEG) and data platforms for education, government and industry."
+    "pt": "Inteligência artificial aplicada e ciência de dados — deep learning, visão computacional embarcada, processamento de sinais e análise de dados.",
+    "en": "Applied AI and data science — deep learning, embedded computer vision, signal processing and data analysis."
   },
   "base": "Piracicaba / SP",
   "education": [
-    { "level": "PhD", "field": "Engenharia de Alimentos", "inst": "FZEA-USP", "year": 2017 },
-    { "level": "MSc", "field": "Engenharia de Alimentos", "inst": "FZEA-USP", "year": 2013 },
-    { "level": "BSc", "field": "Física",                  "inst": "IFSC-USP", "year": 2007 }
+    { "level": "PhD", "field": "Engenharia", "inst": "USP", "year": 2017 },
+    { "level": "MSc", "field": "Engenharia", "inst": "USP", "year": 2013 },
+    { "level": "BSc", "field": "Física",     "inst": "USP", "year": 2007 }
   ],
   "bio": {
     "pt": [
-      "Físico de formação, engenheiro de alimentos por treino, e hoje muito mais. Bacharel em Física pela USP/IFSC (2007), com Mestrado e Doutorado em Engenharia de Alimentos pela FZEA-USP (2013/2017), trabalhando com instrumentação eletrônica e simulação numérica de processos térmicos. Sou professor no IFSP Campus Piracicaba desde então.",
-      "Como pesquisador, trabalho com visão computacional, EEG, machine learning aplicado e instrumentação embarcada. No CEPAD-IFSP coordeno e participo de projetos de plataformas digitais para iniciativas governamentais — Plataforma Nilo Peçanha (rede federal CET/IF), dashboards de cestas básicas (MDS), agroecologia (MMA) — e fui coordenador do programa IFMAISEMPREENDEDOR em Piracicaba (2023, 2025).",
-      "Em paralelo, sou co-fundador da Quickium — empresa de tecnologia voltada a soluções customizadas em visão computacional embarcada, IA aplicada e plataformas de dados. Filosofia: software que precisa rodar no mundo real, ser mantido e gerar valor mensurável."
+      "Bacharel em Física pela USP (2007), com mestrado e doutorado em Engenharia pela USP (2013 e 2017), em pesquisa voltada a instrumentação eletrônica e simulação numérica. De 2008 a 2014 integrou o LAFAC — Laboratório de Física Computacional Aplicada da USP — e, desde 2014, é professor no IFSP, Campus Piracicaba.",
+      "Como pesquisador, atua em visão computacional, processamento de sinais de EEG, machine learning aplicado e instrumentação embarcada. Coordena o CEPAD-IFSP, centro de pesquisa em análise de dados que desenvolve plataformas digitais para iniciativas governamentais — entre elas a Plataforma Nilo Peçanha, da rede federal de educação profissional e tecnológica, e projetos em parceria com os ministérios do Desenvolvimento Social (MDS), do Meio Ambiente (MMA) e da Gestão e da Inovação (MGI). Coordenou também o programa IFMAISEMPREENDEDOR em Piracicaba (2023 e 2025).",
+      "É cofundador e CTO da Quickium, empresa de tecnologia dedicada a soluções sob medida em visão computacional embarcada, IA aplicada e plataformas de dados para os setores industrial, do agronegócio e público."
     ],
     "en": [
-      "Physicist by training, food engineer by formation, and quite a bit more today. BSc in Physics from USP/IFSC (2007), with MSc and PhD in Food Engineering from FZEA-USP (2013/2017), working on electronic instrumentation and numerical simulation of thermal processes. Professor at IFSP Piracicaba ever since.",
-      "As a researcher I work on computer vision, EEG, applied machine learning and embedded instrumentation. At CEPAD-IFSP I coordinate and contribute to digital-platform projects for government initiatives — the Plataforma Nilo Peçanha (Brazil's federal CET/IF data platform), food-basket dashboards (MDS), agroecology (MMA) — and I led the IFMAISEMPREENDEDOR program in Piracicaba (2023, 2025).",
-      "In parallel, I'm co-founder of Quickium — a technology company focused on custom solutions in embedded computer vision, applied AI and data platforms. Philosophy: software that has to run in the real world, be maintained, and deliver measurable value."
+      "BSc in Physics from USP (2007), with an MSc and PhD in Engineering from USP (2013 and 2017), focused on electronic instrumentation and numerical simulation. From 2008 to 2014 he was a member of LAFAC — USP's Applied Computational Physics Laboratory — and has been a professor at IFSP, Piracicaba campus, since 2014.",
+      "His research spans computer vision, EEG signal processing, applied machine learning and embedded instrumentation. He coordinates CEPAD-IFSP, a data-analysis research centre that builds digital platforms for government initiatives — among them the Plataforma Nilo Peçanha, the data platform of Brazil's federal professional and technological education network, and projects with the Ministries of Social Development (MDS), the Environment (MMA) and Management and Innovation (MGI). He also coordinated the IFMAISEMPREENDEDOR programme in Piracicaba (2023 and 2025).",
+      "He is co-founder and CTO of Quickium, a technology company building custom solutions in embedded computer vision, applied AI and data platforms for industrial, agribusiness and public-sector clients."
     ]
   },
   "roles": [
@@ -35,20 +35,20 @@
       "period": "2014 — atual",
       "url": "https://prc.ifsp.edu.br",
       "description": {
-        "pt": "Professor desde 2014 das disciplinas de Inteligência Artificial, Visão Computacional e Visão Computacional Embarcada. Coordenador do programa IFMAISEMPREENDEDOR em Piracicaba (2023 e 2025). Orientações ativas em iniciação científica: EEG aplicado a tarefas cognitivas e qualidade de café, corretor automático de scripts e IA embarcada (parcerias com os campi de Cubatão e Guarulhos). Material aberto em vários repositórios — destaques: o curso FIC (28⭐) e o webinar de CV Embarcada (10⭐).",
-        "en": "Professor since 2014, teaching Artificial Intelligence, Computer Vision and Embedded Computer Vision. Coordinated the IFMAISEMPREENDEDOR programme in Piracicaba (2023 and 2025). Active undergraduate-research advising on EEG for cognitive tasks, EEG+AI for coffee quality, automatic script grading, and embedded AI (joint with the Cubatão and Guarulhos campuses). Open course material across several repositories — most starred: the FIC course (28⭐) and the embedded CV webinar (10⭐)."
+        "pt": "Professor desde 2014 das disciplinas de Inteligência Artificial, Visão Computacional e Visão Computacional Embarcada, e coordenador do CEPAD, centro de pesquisa em análise de dados do campus. Coordenou o programa IFMAISEMPREENDEDOR em Piracicaba (2023 e 2025). Orientações ativas de iniciação científica em EEG aplicado a tarefas cognitivas e à qualidade de café, correção automática de scripts e IA embarcada (parcerias com os campi de Cubatão e Guarulhos). Material aberto em vários repositórios — destaques: o curso FIC (28⭐) e o webinar de CV Embarcada (10⭐).",
+        "en": "Professor since 2014, teaching Artificial Intelligence, Computer Vision and Embedded Computer Vision, and coordinator of CEPAD, the campus's data-analysis research centre. Coordinated the IFMAISEMPREENDEDOR programme in Piracicaba (2023 and 2025). Active undergraduate-research advising on EEG for cognitive tasks and coffee quality, automatic script grading, and embedded AI (joint with the Cubatão and Guarulhos campuses). Open course material across several repositories — most starred: the FIC course (28⭐) and the embedded CV webinar (10⭐)."
       },
       "projects": ["IA-FIC-IFSP", "Webinar-Visão-Computacional-Embarcada", "VisaoComputacionalEmbarcada-2024", "R-exams-Interface", "Oficinas_IFEMPREENDEDOR_2024"]
     },
     {
       "id": "cepad",
       "org": "CEPAD-IFSP",
-      "title": { "pt": "Pesquisador", "en": "Researcher" },
-      "period": "2018 — atual",
+      "title": { "pt": "Coordenador", "en": "Coordinator" },
+      "period": "2024 — atual",
       "url": "https://cepad.digital",
       "description": {
-        "pt": "Centro de Pesquisa em Análise de Dados do IFSP. Coordeno e participo de projetos de plataformas digitais para iniciativas federais em parceria com o MDS (dashboards de cestas básicas e cozinha solidária), MMA (agroecologia) e FNDE. Foco em transformar dados públicos em ferramentas operacionais — do pipeline ETL ao dashboard que o gestor de fato usa.",
-        "en": "Data Analysis Research Centre at IFSP. I coordinate and contribute to digital-platform projects for federal initiatives — partnerships with Brazil's Ministry of Social Development (food-basket and solidarity-kitchen dashboards), Ministry of Environment (agroecology) and FNDE. Focus on turning public data into operational tools — from the ETL pipeline to the dashboard the policy-maker actually opens."
+        "pt": "Centro de Pesquisa em Análise de Dados do IFSP. Coordeno o centro desde a sua criação, em 2024. Desenvolvemos plataformas digitais para iniciativas federais em parceria com o MDS (cozinha solidária e segurança alimentar), o MMA (agroecologia), o MGI e o FNDE — transformando dados públicos em ferramentas operacionais, do pipeline de ETL ao dashboard que o gestor de fato utiliza. Desde a criação, o centro já reuniu mais de R$ 14 milhões em projetos com parceiros.",
+        "en": "IFSP's Data Analysis Research Centre. I have coordinated the centre since it was founded in 2024. We build digital platforms for federal initiatives — partnerships with Brazil's Ministry of Social Development (MDS; solidarity kitchens and food security), Ministry of the Environment (MMA; agroecology), Ministry of Management and Innovation (MGI) and the FNDE — turning public data into operational tools, from the ETL pipeline to the dashboard the policy-maker actually uses. Since its founding, the centre has gathered over R$ 14 million in partner-funded projects."
       },
       "projects": ["alimentacidades", "dash-bacias", "agroecologiaMMA", "deserto-ia", "cozinhasolidaria", "agrotoxico-analytics", "Airflow-ETL", "nea-dashboard"]
     },
@@ -71,8 +71,8 @@
       "period": "—",
       "url": "https://quickium.com",
       "description": {
-        "pt": "Co-fundador e CTO. Construímos software sob medida em visão computacional embarcada, IA aplicada e engenharia de dados — para clientes industriais, agronegócio e setor público. Da prototipagem em laboratório ao deploy em produção que precisa rodar, ser mantido e gerar valor mensurável.",
-        "en": "Co-founder and CTO. We build custom software around embedded computer vision, applied AI and data engineering — for industrial clients, agribusiness and the public sector. From lab prototype to production deployment that has to run, be maintained, and deliver measurable value."
+        "pt": "Co-fundador e CTO. Construímos software sob medida em visão computacional embarcada, IA aplicada e engenharia de dados para clientes da indústria, do agronegócio e do setor público.",
+        "en": "Co-founder and CTO. We build custom software around embedded computer vision, applied AI and data engineering for industrial, agribusiness and public-sector clients."
       },
       "projects": []
     }
@@ -82,40 +82,40 @@
       "id": "ml",
       "label": { "pt": "Machine Learning", "en": "Machine Learning" },
       "description": {
-        "pt": "Modelagem com deep learning aplicada a sinais biomédicos (EEG), análise de imagens científicas e dados públicos. Foco em transformar dados brutos em modelos que sustentem decisões — do experimento à API que roda em produção. Stack principal: PyTorch, TensorFlow, scikit-learn.",
-        "en": "Deep-learning modelling applied to biomedical signals (EEG), scientific image analysis and public data. Focus on turning raw data into models that support real decisions — from experiment to production API. Stack: PyTorch, TensorFlow, scikit-learn."
+        "pt": "Modelagem com deep learning aplicada a sinais biomédicos (EEG), análise de imagens científicas e dados públicos, com publicações científicas em periódicos revisados por pares. Stack principal: PyTorch, TensorFlow, scikit-learn.",
+        "en": "Deep-learning modelling applied to biomedical signals (EEG), scientific image analysis and public data, with peer-reviewed scientific publications. Main stack: PyTorch, TensorFlow, scikit-learn."
       }
     },
     {
       "id": "cv",
       "label": { "pt": "Computer Vision", "en": "Computer Vision" },
       "description": {
-        "pt": "Visão computacional aplicada — segmentação, detecção e classificação. Projetos publicados em agricultura (crescimento de alface via segmentação), esportes (detecção de posições de Jiu-Jitsu com YOLO) e pesquisa acadêmica. Trabalho com OpenCV, YOLO, SAM3 e modelos clássicos quando o problema pede.",
-        "en": "Applied computer vision — segmentation, detection and classification. Published work in agriculture (lettuce growth via segmentation), sports (BJJ position detection with YOLO) and academic research. OpenCV, YOLO, SAM3, and classical models when the problem calls for them."
+        "pt": "Visão computacional aplicada — segmentação, detecção e classificação. Projetos em agricultura (crescimento de alface por segmentação de imagens), análise de exercícios físicos (Quickium Gym, premiado na etapa América Latina da OpenCV AI Competition 2021) e pesquisa acadêmica. Ferramentas: OpenCV, YOLO, SAM3 e modelos clássicos quando o problema pede.",
+        "en": "Applied computer vision — segmentation, detection and classification. Projects in agriculture (lettuce growth via image segmentation), fitness movement analysis (Quickium Gym, awarded in the Latin America stage of the OpenCV AI Competition 2021) and academic research. Tools: OpenCV, YOLO, SAM3, and classical models when the problem calls for them."
       }
     },
     {
       "id": "embedded",
       "label": { "pt": "Embedded Systems", "en": "Embedded Systems" },
       "description": {
-        "pt": "Visão computacional e ML rodando em hardware embarcado — NVIDIA Jetson, Raspberry Pi, ESP32 e microcontroladores. Curso aberto e webinar com material e exemplos. Engenharia para latência, consumo de energia e robustez em ambiente real.",
-        "en": "Computer vision and ML running on embedded hardware — NVIDIA Jetson, Raspberry Pi, ESP32 and microcontrollers. Open course and webinar with material and examples. Engineering for latency, power and robustness in real-world conditions."
+        "pt": "IA na borda — visão computacional e modelos de machine learning executados em hardware embarcado, como NVIDIA Jetson, Raspberry Pi, ESP32 e microcontroladores. Engenharia para latência, consumo de energia e robustez em condições reais, com curso aberto e webinar de material e exemplos.",
+        "en": "AI at the edge — computer vision and machine-learning models running on embedded hardware such as NVIDIA Jetson, Raspberry Pi, ESP32 and microcontrollers. Engineering for latency, power and robustness in real-world conditions, with an open course and webinar of material and examples."
       }
     },
     {
       "id": "data-eng",
       "label": { "pt": "Data Engineering", "en": "Data Engineering" },
       "description": {
-        "pt": "Plataformas de dados para governo e educação — Plataforma Nilo Peçanha (rede federal CET/IF), dashboards do MDS para cestas básicas e cozinha solidária, agroecologia (MMA). Tooling de Power BI: parser TMDL, automação DAX, pipelines ETL pensados para uso operacional, não relatório bonito.",
-        "en": "Data platforms for government and education — Brazil's federal CET/IF data platform, MDS dashboards for food baskets and solidarity kitchens, agroecology (MMA). Power BI tooling: TMDL parser, DAX automation, ETL pipelines built for operational use — not pretty reports."
+        "pt": "Plataformas de dados para governo e educação — Plataforma Nilo Peçanha (rede federal de educação profissional e tecnológica), dashboards do MDS e projetos de agroecologia do MMA. Ferramentas de Power BI: parser de TMDL, automação de DAX e pipelines de ETL para uso operacional.",
+        "en": "Data platforms for government and education — the Plataforma Nilo Peçanha (Brazil's federal professional and technological education network), MDS dashboards and MMA agroecology projects. Power BI tooling: TMDL parser, DAX automation and ETL pipelines for operational use."
       }
     },
     {
       "id": "ai",
       "label": { "pt": "AI", "en": "AI" },
       "description": {
-        "pt": "IA aplicada e ferramentas para desenvolvimento com IA — agents customizados com Claude, automação de tarefas educacionais com LLM, firewall e gateway para APIs de modelos. Tratamento da IA como infraestrutura prática e mantível, não como buzzword de marketing.",
-        "en": "Applied AI and AI-development tooling — custom Claude agents, LLM-driven automation for educational tasks, firewall and gateway for model APIs. Treating AI as practical, maintainable infrastructure — not a marketing buzzword."
+        "pt": "IA aplicada e ferramentas para desenvolvimento com IA — agentes customizados com Claude, automação de tarefas educacionais com LLM, firewall e gateway para APIs de modelos. Tratamento da IA como infraestrutura prática e mantível.",
+        "en": "Applied AI and AI-development tooling — custom Claude agents, LLM-driven automation for educational tasks, a firewall and gateway for model APIs. Treating AI as practical, maintainable infrastructure."
       }
     }
   ],
@@ -141,7 +141,7 @@
       { "label": "Plataforma Nilo Peçanha", "url": "https://www.gov.br/pnp" },
       { "label": "EEG — sinais biomédicos com deep learning", "url": "https://github.com/Atzingen/EEG_Sweetners" },
       { "label": "Visão computacional para agricultura", "url": "https://github.com/Atzingen/crescimento_plantas" },
-      { "label": "Dashboards do MDS — cesta básica e cozinha solidária", "url": "https://github.com/Atzingen/alimentacidades" },
+      { "label": "Dashboards do MDS — segurança alimentar e cozinha solidária", "url": "https://github.com/Atzingen/alimentacidades" },
       { "label": "Visão computacional embarcada", "url": "https://github.com/Atzingen/Webinar-Vis-o-computacional-Embarcada" }
     ],
     "advisingActive": [

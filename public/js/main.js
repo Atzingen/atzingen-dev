@@ -291,7 +291,6 @@
           ),
           el("div", { class: "pub-meta" }, [
             el("span", { class: "pub-venue" }, p.venue + (p.vol ? ` · ${p.vol}` : "")),
-            p.isFirstAuthor ? el("span", { class: "tag tag-mono pub-first" }, t("section.publications.firstAuthor")) : null,
           ]),
           el("div", { class: "pub-authors" }, p.coauthors.join(" · ")),
         ]),
